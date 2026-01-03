@@ -1,184 +1,251 @@
 import React, { useState } from 'react';
-import { Rocket, Star, MapPin, Calendar, Clock, Gift, Moon } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Rocket, Star, MapPin, Calendar, Clock, Gift, Moon, Heart, MailOpen, Navigation } from 'lucide-react';
 
 export default function BabyBirthdayInvite() {
   const [isOpened, setIsOpened] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(false);
 
-  const handleOpenEnvelope = () => {
-    setIsAnimating(true);
-    setTimeout(() => {
-      setIsOpened(true);
-    }, 800);
-  };
-
-  if (!isOpened) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] flex items-center justify-center p-4 relative overflow-hidden text-white">
-        {/* Shooting stars */}
-        {Array.from({ length: 20 }).map((_, i) => (
-          <div
-            key={i}
-            className={`absolute w-1 h-1 bg-white rounded-full animate-shoot`}
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animationDuration: `${2 + Math.random() * 3}s`,
-              opacity: Math.random() * 0.8 + 0.2
-            }}
-          ></div>
-        ))}
-
-        <div className="text-center z-10">
-          <h1 className="text-4xl md:text-5xl font-bold text-yellow-400 mb-8 animate-pulse">
-            Урилга ирлээ! 
-          </h1>
-
-          {/* Envelope */}
-          <div 
-            className={`relative cursor-pointer transition-transform duration-700 hover:scale-105 ${isAnimating ? 'animate-bounce' : ''}`}
-            onClick={handleOpenEnvelope}
-          >
-            <div className="relative w-80 h-56 mx-auto">
-              {/* Back of envelope */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-900 to-indigo-900 rounded-lg shadow-2xl"></div>
-              
-              {/* Flap */}
-              <div 
-                className={`absolute top-0 left-0 right-0 h-32 bg-gradient-to-br from-purple-700 to-blue-800 origin-top transition-transform duration-800 ${isAnimating ? '-rotate-180' : ''}`}
-                style={{
-                  clipPath: 'polygon(0 0, 50% 60%, 100% 0)',
-                  transformOrigin: 'top center'
-                }}
-              ></div>
-              
-              {/* Letter */}
-              <div 
-                className={`absolute left-8 right-8 bg-[#0f172a] rounded-t-lg shadow-lg transition-all duration-800 ${isAnimating ? 'top-0 h-64' : 'top-20 h-40'}`}
-              >
-                <div className="p-6 text-center">
-                  <Rocket className="w-12 h-12 text-yellow-400 mx-auto mb-2" />
-                  <p className="text-2xl font-bold text-yellow-400">Б.Тэнүүнгүн</p>
-                  <p className="text-lg text-gray-300">Би 1 нас хүрлээ! 🚀</p>
-                  {isAnimating && (
-                    <div className="mt-4 text-yellow-400 animate-pulse">
-                      <p className="text-sm">...</p>
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              {/* Moon seal */}
-              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-gradient-to-br from-gray-400 to-gray-600 rounded-full shadow-lg flex items-center justify-center border-4 border-gray-500">
-                <Moon className="w-8 h-8 text-white" fill="currentColor" />
-              </div>
-            </div>
-
-            <p className="mt-8 text-xl font-semibold text-yellow-400 animate-bounce">
-              👆 Дарж сансрын адал явдалд нэгдээрэй!
-            </p>
-          </div>
-        </div>
-
-        <style jsx>{`
-          @keyframes shoot {
-            0% { transform: translate(0, 0) scale(0.5); opacity: 1; }
-            100% { transform: translate(200px, 100px) scale(0); opacity: 0; }
-          }
-          .animate-shoot {
-            animation: shoot linear infinite;
-          }
-        `}</style>
-      </div>
-    );
-  }
+  // Сансрын элементүүд (одууд)
+  const stars = Array.from({ length: 40 }).map((_, i) => ({
+    id: i,
+    size: Math.random() * 3 + 1,
+    top: `${Math.random() * 100}%`,
+    left: `${Math.random() * 100}%`,
+    delay: Math.random() * 5
+  }));
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] py-8 px-4 animate-fadeIn text-white">
-      <div className="max-w-2xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-8 relative">
-          <div className="inline-block animate-bounce">
-            <Rocket className="w-16 h-16 text-yellow-400 mx-auto mb-4" />
-          </div>
-          <h1 className="text-5xl font-bold text-yellow-400 mb-2">Нэг одны адал явдал!</h1>
-          <p className="text-2xl text-gray-300 font-medium">Та урилгад оролцоно уу!</p>
-        </div>
-
-        {/* Invitation card */}
-        <div className="bg-[#1e293b] rounded-3xl shadow-2xl p-8 mb-6 border-4 border-indigo-600 relative overflow-hidden">
-          {/* Floating stars */}
-          {Array.from({ length: 15 }).map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-2 h-2 bg-yellow-400 rounded-full animate-bounce opacity-50"
-              style={{
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`
-              }}
-            ></div>
-          ))}
-
-          <div className="relative z-10">
-            {/* Baby photo placeholder */}
-            <div className="w-40 h-40 mx-auto mb-6 rounded-full bg-gradient-to-br from-blue-700 to-purple-700 flex items-center justify-center border-4 border-yellow-400 shadow-lg">
-              <Rocket className="w-20 h-20 text-yellow-400" fill="currentColor" />
-            </div>
-
-            <div className="text-center mb-8">
-              <h2 className="text-4xl font-bold text-yellow-400 mb-2">Б.Тэнүүнгүн</h2>
-              <p className="text-xl text-gray-300">1 нас хүрлээ! 🚀</p>
-            </div>
-
-            {/* Event details */}
-            <div className="space-y-4 mb-8">
-              <div className="flex items-start bg-blue-900/40 p-4 rounded-xl">
-                <Calendar className="w-6 h-6 text-yellow-400 mr-3 mt-1 flex-shrink-0" />
-                <div>
-                  <p className="font-semibold">1 сарын 18, 2026</p>
-                </div>
-              </div>
-
-              <div className="flex items-start bg-blue-900/30 p-4 rounded-xl">
-                <Clock className="w-6 h-6 text-yellow-400 mr-3 mt-1 flex-shrink-0" />
-                <div>
-                  <p className="font-semibold">13:30 PM - 17:00 PM</p>
-                </div>
-              </div>
-
-              <div className="flex items-start bg-blue-900/20 p-4 rounded-xl">
-                <MapPin className="w-6 h-6 text-yellow-400 mr-3 mt-1 flex-shrink-0" />
-                <div>
-                  <p className="font-semibold">Sunny kids cafe</p>
-                  <p className="text-gray-300 text-sm">123 Celebration Lane, Happy Town</p>
-                </div>
-              </div>
-
-              <div className="flex items-start bg-blue-900/10 p-4 rounded-xl">
-                <Gift className="w-6 h-6 text-yellow-400 mr-3 mt-1 flex-shrink-0" />
-                <div>
-                  <p className="font-semibold">Таны ирц хамгийн том бэлэг!</p>
-                  <p className="text-gray-300 text-sm">Хэрэв хүсвэл, номны бэлэг бас урамтай</p>
-                </div>
-              </div>
-            </div>
-
-            {/* RSVP */}
-            <div className="bg-gradient-to-r from-indigo-800 to-purple-900 p-6 rounded-2xl text-center">
-              <h3 className="text-2xl font-bold text-yellow-400 mb-3">RSVP хийнэ үү</h3>
-              <p className="text-gray-300 text-lg mb-2">Та ирэх боломжтой эсэхээ мэдэгдэнэ үү!</p>
-              <p className="text-gray-400">Утас болон и-мэйлээр холбоо барина уу</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Footer */}
-        <div className="text-center text-gray-400 space-y-2">
-          <p className="font-medium">Асуулт байвал холбоо барина уу:</p>
-          <p>Болдсүх, Анхцэцэг</p>
-          <p>📧 smith.family@email.com | 📱 (555) 123-4567</p>
-        </div>
+    <div className="min-h-screen bg-[#0a0a14] font-['Plus_Jakarta_Sans',_sans-serif] text-slate-200 overflow-hidden relative selection:bg-purple-500/30">
+      
+      {/* Background Animations */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        {stars.map((star) => (
+          <motion.div
+            key={star.id}
+            className="absolute bg-white rounded-full opacity-30"
+            style={{
+              width: star.size,
+              height: star.size,
+              top: star.top,
+              left: star.left,
+            }}
+            animate={{
+              opacity: [0.2, 0.8, 0.2],
+              scale: [1, 1.5, 1],
+            }}
+            transition={{
+              duration: 3 + star.delay,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+        <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[120px] animate-pulse" />
+        <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] animate-pulse" />
       </div>
+
+      <main className="relative z-10 min-h-screen flex flex-col items-center justify-center p-6">
+        <AnimatePresence mode="wait">
+          {!isOpened ? (
+            /* --- ENVELOPE VIEW (UNOPENED) --- */
+            <motion.div
+              key="envelope"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, rotateY: 90 }}
+              transition={{ duration: 0.6 }}
+              className="relative w-full max-w-[450px] group cursor-pointer"
+              onClick={() => setIsOpened(true)}
+            >
+              {/* Envelope Shadow */}
+              <div className="absolute -bottom-6 left-10 right-10 h-6 bg-black/40 blur-xl rounded-[100%] transition-opacity group-hover:opacity-100 opacity-60" />
+              
+              <div className="relative bg-[#1a1a2e] border border-white/10 rounded-2xl shadow-2xl overflow-hidden aspect-[4/3] flex flex-col items-center justify-center p-8 transition-transform duration-500 group-hover:-translate-y-2">
+                {/* Texture */}
+                <div className="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]" />
+                
+                {/* Top Flap (Static Design) */}
+                <div className="absolute top-0 left-0 w-full h-1/2 bg-[#252545] clip-path-polygon-[0%_0%,100%_0%,50%_100%] z-20 shadow-md" 
+                     style={{ clipPath: 'polygon(0 0, 100% 0, 50% 100%)' }} />
+                
+                {/* Seal Button */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30">
+                  <motion.div 
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="w-20 h-20 bg-gradient-to-tr from-yellow-400 to-orange-500 rounded-full border-4 border-[#1a1a2e] shadow-xl flex items-center justify-center text-white"
+                  >
+                    <Moon fill="currentColor" className="w-10 h-10" />
+                  </motion.div>
+                </div>
+
+                {/* Text Content */}
+                <div className="mt-auto text-center space-y-3 z-10">
+                  <p className="text-yellow-400 font-bold text-xs uppercase tracking-[0.3em]">Special Space Delivery</p>
+                  <h2 className="text-4xl font-['Caveat',_cursive] text-white">The Smith Family</h2>
+                  <p className="text-slate-400 text-sm max-w-[220px] mx-auto">
+                    Таныг сансрын нэгэн онцгой адал явдалд урьж байна...
+                  </p>
+                  <div className="pt-4">
+                    <button className="flex items-center gap-2 bg-purple-600 hover:bg-purple-500 text-white px-6 py-3 rounded-full font-bold transition-all shadow-lg shadow-purple-500/20">
+                      <MailOpen size={18} />
+                      Нээж үзэх
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ) : (
+            /* --- INVITATION VIEW (OPENED) --- */
+            <motion.div
+              key="invitation"
+              initial={{ opacity: 0, y: 100, scale: 0.9 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ type: "spring", damping: 20, stiffness: 100 }}
+              className="w-full max-w-3xl bg-[#16162a] rounded-[2.5rem] shadow-[0_20px_60px_rgba(0,0,0,0.5)] border border-white/10 overflow-hidden relative"
+            >
+              {/* Header Visuals */}
+              <div className="relative h-64 sm:h-80 bg-[#1e1e38] flex items-center justify-center overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 to-transparent" />
+                
+                {/* Floating Badge */}
+                <div className="absolute top-6 right-6 z-20 rotate-12">
+                   <div className="w-20 h-20 rounded-full bg-yellow-400 flex flex-col items-center justify-center text-slate-900 border-4 border-white shadow-2xl">
+                      <span className="text-3xl font-black">1st</span>
+                      <span className="text-[10px] font-bold uppercase tracking-tighter">B-Day</span>
+                   </div>
+                </div>
+
+                {/* Photo Placeholders with Depth */}
+                <div className="relative flex items-center justify-center gap-4 w-full px-10">
+                  <motion.div 
+                    animate={{ y: [0, -10, 0] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                    className="w-32 h-44 bg-white/5 border border-white/10 p-2 rounded-2xl rotate-[-6deg] hidden sm:block shadow-xl backdrop-blur-md"
+                  >
+                    <div className="w-full h-full bg-slate-800 rounded-xl flex items-center justify-center">
+                       <Star className="text-white/20" size={40} />
+                    </div>
+                  </motion.div>
+                  
+                  <motion.div 
+                    animate={{ y: [-10, 0, -10] }}
+                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                    className="w-48 h-64 bg-white p-3 rounded-2xl shadow-2xl z-10 relative"
+                  >
+                    <div className="w-full h-full bg-slate-200 rounded-xl flex items-center justify-center overflow-hidden bg-[url('https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&q=80')] bg-cover bg-center">
+                       {!isOpened && <Rocket className="text-purple-600" size={60} />}
+                    </div>
+                  </motion.div>
+
+                  <motion.div 
+                    animate={{ y: [0, -10, 0] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                    className="w-32 h-44 bg-white/5 border border-white/10 p-2 rounded-2xl rotate-[6deg] hidden sm:block shadow-xl backdrop-blur-md"
+                  >
+                    <div className="w-full h-full bg-slate-800 rounded-xl flex items-center justify-center">
+                       <Heart className="text-white/20" size={40} />
+                    </div>
+                  </motion.div>
+                </div>
+              </div>
+
+              {/* Main Content */}
+              <div className="p-8 sm:p-12 text-center bg-[#16162a]">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                >
+                  <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-500/10 text-purple-400 text-xs font-bold uppercase tracking-widest mb-6">
+                    <Rocket size={14} />
+                    You're Invited
+                  </div>
+                  
+                  <h1 className="text-4xl sm:text-6xl font-extrabold text-white mb-4 tracking-tight">
+                    Б.Тэнүүнгүн <span className="text-yellow-400">1</span> нас!
+                  </h1>
+                  
+                  <p className="text-slate-400 text-lg max-w-lg mx-auto leading-relaxed mb-10 font-medium">
+                    Манай бяцхан сансрын нисгэгчийн анхны тойрог замаа дуусгаж буй баярт таныг урьж байна. Бөмбөлөг, бялуу, гайхалтай дурсамжууд хүлээж байна!
+                  </p>
+                </motion.div>
+
+                {/* Details Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 py-10 border-y border-white/5 mb-10">
+                  <div className="space-y-3">
+                    <div className="w-12 h-12 rounded-2xl bg-purple-500/10 flex items-center justify-center text-purple-400 mx-auto">
+                      <Calendar size={24} />
+                    </div>
+                    <div>
+                      <h3 className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">Огноо</h3>
+                      <p className="text-lg font-bold text-white">1 сарын 18</p>
+                      <p className="text-sm text-slate-400">Ням гараг, 2026</p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-3 sm:border-x border-white/5">
+                    <div className="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400 mx-auto">
+                      <Clock size={24} />
+                    </div>
+                    <div>
+                      <h3 className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">Цаг</h3>
+                      <p className="text-lg font-bold text-white">13:30 PM</p>
+                      <p className="text-sm text-slate-400">17:00 хүртэл</p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-3">
+                    <div className="w-12 h-12 rounded-2xl bg-yellow-500/10 flex items-center justify-center text-yellow-400 mx-auto">
+                      <MapPin size={24} />
+                    </div>
+                    <div>
+                      <h3 className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">Хаана</h3>
+                      <p className="text-lg font-bold text-white">Sunny Kids Cafe</p>
+                      <p className="text-sm text-slate-400">Улаанбаатар хот</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Call to Actions */}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <motion.button 
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="bg-purple-600 hover:bg-purple-500 text-white px-10 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-purple-900/20 transition-all flex items-center justify-center gap-2"
+                  >
+                    <Heart size={20} fill="currentColor" />
+                    RSVP Хийх
+                  </motion.button>
+                  
+                  <motion.button 
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="bg-white/5 hover:bg-white/10 text-white border border-white/10 px-10 py-4 rounded-2xl font-bold text-lg transition-all flex items-center justify-center gap-2"
+                  >
+                    <Navigation size={20} />
+                    Байршил харах
+                  </motion.button>
+                </div>
+
+                {/* Footer Info */}
+                <div className="mt-12 pt-8 border-t border-white/5 flex flex-col items-center gap-2">
+                  <p className="text-slate-500 text-sm">Урилгатай холбоотой асуулт байвал:</p>
+                  <p className="text-white font-bold">Болдсүх & Анхцэцэг</p>
+                  <p className="text-purple-400 font-mono text-sm tracking-tighter">9911-XXXX, 8811-XXXX</p>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Brand Footer */}
+        <div className="mt-8 opacity-40 flex items-center gap-2 text-xs font-medium tracking-[0.2em] uppercase">
+          <div className="w-1 h-1 rounded-full bg-yellow-400" />
+          Powered by TinyCelebrations
+          <div className="w-1 h-1 rounded-full bg-yellow-400" />
+        </div>
+      </main>
     </div>
   );
 }
