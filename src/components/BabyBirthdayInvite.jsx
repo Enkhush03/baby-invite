@@ -1,344 +1,292 @@
-import React, { useState, useEffect } from 'react';
-import { Heart, Truck, Calendar, Clock, MapPin, Gift, Star, Navigation } from 'lucide-react';
-
-// Add Google Fonts
-if (typeof document !== 'undefined') {
-  const link = document.createElement('link');
-  link.href = 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600;700&display=swap';
-  link.rel = 'stylesheet';
-  document.head.appendChild(link);
-}
+import React, { useState } from 'react';
+import { Heart, Calendar, Clock, MapPin, Star, Navigation } from 'lucide-react';
 
 export default function BabyInvitation() {
   const [isOpened, setIsOpened] = useState(false);
-  const [babyImage] = useState('https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=400&h=500&fit=crop');
+  // Үдэшлэгийн огноо (Та энийг өөрчилж болно)
+  const eventDate = new Date('2026-01-18T13:30:00'); // 2026 оны 10 сарын 14, 14:00 цаг
+  
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
 
   useEffect(() => {
-    // Preload images
-    const img = new Image();
-    img.src = babyImage;
-  }, [babyImage]);
+    const calculateTimeLeft = () => {
+      const now = new Date();
+      const difference = eventDate.getTime() - now.getTime();
+
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+          minutes: Math.floor((difference / 1000 / 60) % 60),
+          seconds: Math.floor((difference / 1000) % 60)
+        });
+      } else {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      }
+    };
+
+    calculateTimeLeft();
+    const timer = setInterval(calculateTimeLeft, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
 
   if (!isOpened) {
     return (
-      <div className="min-h-screen bg-[#FDF4FF] flex items-center justify-center p-6 relative overflow-hidden">
-        {/* Background Effects */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-pink-400/20 rounded-full blur-[80px]" 
-               style={{ animation: 'float 6s ease-in-out infinite' }} />
-          <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-purple-400/20 rounded-full blur-[100px]" 
-               style={{ animation: 'float 6s ease-in-out infinite', animationDelay: '-2s' }} />
-          <div className="absolute top-[20%] right-[10%] w-[300px] h-[300px] bg-yellow-400/20 rounded-full blur-[60px]" 
-               style={{ animation: 'float 6s ease-in-out infinite', animationDelay: '-4s' }} />
+      <div className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50 flex items-center justify-center p-4 sm:p-6 font-sans">
+
+        {/* Background blobs */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-[-10%] left-[-5%] w-64 sm:w-96 h-64 sm:h-96 bg-pink-300/30 rounded-full blur-3xl animate-[float_6s_ease-in-out_infinite]" />
+          <div className="absolute bottom-[-10%] right-[-5%] w-72 sm:w-[500px] h-72 sm:h-[500px] bg-purple-300/30 rounded-full blur-3xl animate-[float_8s_ease-in-out_infinite] [animation-delay:-2s]" />
+          <div className="absolute top-[20%] right-[10%] w-48 sm:w-72 h-48 sm:h-72 bg-blue-300/20 rounded-full blur-3xl animate-[float_7s_ease-in-out_infinite] [animation-delay:-4s]" />
         </div>
 
-        {/* Envelope Card */}
-        <div className="relative w-full max-w-[440px] z-10">
-          <div className="relative bg-white rounded-2xl shadow-[0_20px_40px_-10px_rgba(139,92,246,0.15)] overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl">
-            {/* Texture Overlay */}
-            <div className="absolute inset-0 opacity-30 pointer-events-none" 
-                 style={{ 
-                   backgroundImage: 'radial-gradient(#cbd5e1 1px, transparent 1px)',
-                   backgroundSize: '24px 24px'
-                 }} />
+        {/* Main envelope card */}
+        <div className="relative w-full max-w-md z-10">
+          <div className="bg-white rounded-3xl shadow-2xl overflow-hidden transform transition-all duration-500 hover:-translate-y-2 hover:shadow-3xl">
             
-            {/* Envelope Flap */}
-            <div className="absolute top-0 left-0 w-full h-[200px] z-20 pointer-events-none">
-              <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full h-full drop-shadow-md">
-                <polygon points="0,0 50,100 100,0" fill="#f8fafc" />
-                <polygon points="0,0 50,100 100,0" fill="url(#flap-gradient)" opacity="0.1" />
+            {/* Envelope flap SVG */}
+            <div className="relative h-48 bg-gradient-to-br from-slate-50 to-slate-100">
+              <svg viewBox="0 0 400 200" className="w-full h-full drop-shadow-lg">
                 <defs>
-                  <linearGradient id="flap-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stopColor="transparent" />
-                    <stop offset="100%" stopColor="black" />
+                  <linearGradient id="flapGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#f8fafc" />
+                    <stop offset="100%" stopColor="#e2e8f0" />
                   </linearGradient>
                 </defs>
+                <polygon points="0,0 200,200 400,0" fill="url(#flapGrad)" />
+                <polygon points="0,0 200,200 400,0" fill="black" opacity="0.05" />
               </svg>
+              
+              {/* Heart seal button */}
+              <div className="absolute left-1/2 bottom-0 -translate-x-1/2 translate-y-1/2">
+                <button 
+                  onClick={() => setIsOpened(true)}
+                  className="relative group focus:outline-none focus:ring-4 focus:ring-pink-300 rounded-full"
+                >
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full border-4 sm:border-[6px] border-white shadow-2xl flex items-center justify-center text-white transform transition-all duration-300 group-hover:scale-110 group-active:scale-95">
+                    <Heart className="w-8 h-8 sm:w-10 sm:h-10" fill="currentColor" />
+                  </div>
+                  <div className="absolute inset-0 rounded-full border-2 border-pink-400 opacity-0 group-hover:opacity-100 animate-ping" />
+                </button>
+              </div>
             </div>
 
-            {/* Heart Seal Button */}
-            <div className="absolute top-[200px] left-1/2 -translate-x-1/2 -translate-y-1/2 z-30">
-              <button 
-                onClick={() => setIsOpened(true)}
-                className="relative group focus:outline-none"
-              >
-                <div className="w-20 h-20 bg-[#FB7185] rounded-full border-4 border-white shadow-lg flex items-center justify-center text-white transform transition-transform duration-300 group-hover:scale-110 group-active:scale-95">
-                  <Heart fill="currentColor" size={36} />
-                </div>
-                <div className="absolute inset-0 rounded-full border-2 border-[#FB7185] opacity-0 group-hover:opacity-100 animate-ping" />
-                <div className="absolute -inset-2 rounded-full border border-[#FB7185]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </button>
-            </div>
-
-            {/* Card Content */}
-            <div className="pt-[220px] pb-10 px-8 flex flex-col items-center text-center relative z-10">
-              {/* Decorative Icon */}
-              <div className="absolute top-[240px] right-6 opacity-20 rotate-12 pointer-events-none">
-                <Truck size={64} className="text-purple-600" />
+            {/* Card content */}
+            <div className="px-6 sm:px-8 pt-16 pb-8 text-center relative">
+              {/* Decorative elements */}
+              <div className="absolute top-4 right-4 text-purple-200 opacity-30 rotate-12">
+                <Star className="w-12 h-12" fill="currentColor" />
               </div>
 
-              <div className="space-y-1 mb-8">
-                <p className="text-[#FB7185] font-bold text-xs uppercase tracking-[0.2em]">
-                  Онцгой Хүргэлт
-                </p>
-                <h2 className="font-['Caveat',cursive] text-5xl text-slate-700 -rotate-2">
-                  Smith Family
-                </h2>
-                <p className="text-slate-500 text-sm pt-2 max-w-[200px] mx-auto leading-relaxed">
-                  Та төрсөн өдрийн урилга хүлээн авлаа!
-                </p>
-              </div>
+              {/* <p className="text-pink-500 font-bold text-xs uppercase tracking-[0.2em] mb-2"> 
+              </p> */}
+              
+              <h2 className="text-4xl sm:text-5xl font-handwriting text-slate-700 mb-2 -rotate-1">
+                Би 1 нас хүрлээ
+              </h2>
+              
+              <p className="text-slate-400 text-sm mb-8 max-w-[250px] mx-auto leading-relaxed">
+                Та төрсөн өдрийн урилга хүлээн авлаа!
+              </p>
 
               <button 
                 onClick={() => setIsOpened(true)}
-                className="w-full bg-purple-600 hover:bg-purple-700 text-white rounded-full h-14 font-bold text-lg shadow-lg shadow-purple-600/30 flex items-center justify-center gap-3 transition-all transform hover:scale-[1.02] active:scale-95 relative overflow-hidden group"
+                className="w-full bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white rounded-full py-4 font-bold text-base sm:text-lg shadow-lg shadow-purple-500/30 flex items-center justify-center gap-3 transition-all transform hover:scale-[1.02] active:scale-95 relative overflow-hidden group"
               >
-                <Heart size={20} className="group-hover:rotate-12 transition-transform" />
-                <span>Урилгыг Нээх</span>
-                <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-[shimmer_1.5s_infinite]" />
+                <Heart className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                <span>Урилга Нээх</span>
               </button>
             </div>
           </div>
 
           {/* Shadow */}
-          <div className="absolute -bottom-4 left-8 right-8 h-4 bg-black/10 blur-lg rounded-[100%] pointer-events-none" />
+          <div className="absolute -bottom-4 left-8 right-8 h-6 bg-black/10 blur-xl rounded-full" />
         </div>
 
-        {/* Footer Text */}
-        <div className="absolute bottom-12 left-0 right-0 text-center opacity-80">
-          <p className="text-slate-500 font-medium text-sm flex items-center justify-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-yellow-400" />
-            Thompson гэр бүлээс зохион байгуулав
-            <span className="w-1.5 h-1.5 rounded-full bg-yellow-400" />
+        {/* Footer */}
+        <div className="absolute bottom-8 left-0 right-0 text-center">
+          <p className="text-slate-400 text-sm font-medium flex items-center justify-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-purple-400" />
+            Болдсүхийн гэр бүлээс
+            <span className="w-1.5 h-1.5 rounded-full bg-purple-400" />
           </p>
         </div>
-
-        <style jsx>{`
-          @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-          }
-          @keyframes shimmer {
-            100% { transform: translateX(100%); }
-          }
-        `}</style>
       </div>
     );
   }
 
-  // Opened State
+  // Opened invitation
   return (
-    <div className="min-h-screen bg-[#f8f7fb] flex flex-col">
-      {/* Header */}
-      <header className="flex items-center justify-between px-6 lg:px-10 py-3 bg-white/80 backdrop-blur-md border-b border-slate-200 sticky top-0 z-30">
-        <div className="flex items-center gap-3 text-slate-900">
-          <div className="w-9 h-9 flex items-center justify-center text-purple-600 bg-purple-100 rounded-full">
-            <Star fill="currentColor" size={24} />
-          </div>
-          <h2 className="text-lg font-bold tracking-tight">TinyCelebrations</h2>
-        </div>
-        <div className="flex gap-2">
-          <button className="hidden sm:flex min-w-[84px] items-center justify-center rounded-full h-10 px-6 bg-slate-100 hover:bg-slate-200 transition-colors text-slate-900 text-sm font-bold">
-            Нэвтрэх
-          </button>
-          <button className="flex min-w-[84px] items-center justify-center rounded-full h-10 px-6 bg-purple-600 hover:bg-purple-700 transition-colors text-white text-sm font-bold shadow-md shadow-purple-600/20">
-            Урилга Үүсгэх
-          </button>
-        </div>
-      </header>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 font-sans">
 
-      {/* Main Content */}
-      <main className="flex-1 flex flex-col items-center justify-center py-8 lg:py-16 px-4 sm:px-6 relative">
-        {/* Background Decorations */}
-        <div className="absolute top-20 left-4 lg:left-20 text-purple-600/5 select-none animate-pulse">
-          <Star size={200} fill="currentColor" />
+      {/* Main content */}
+      <main className="flex flex-col items-center justify-center min-h-screen py-8 lg:py-12 px-4 sm:px-6 relative">
+        
+        {/* Background decorations */}
+        <div className="absolute top-20 left-4 lg:left-20 text-purple-600/5 pointer-events-none">
+          <Star className="w-32 h-32 lg:w-48 lg:h-48" fill="currentColor" />
         </div>
-        <div className="absolute bottom-20 right-4 lg:right-20 text-purple-600/5 select-none animate-pulse" style={{ animationDelay: '1.5s' }}>
-          <Heart size={200} fill="currentColor" />
+        <div className="absolute bottom-20 right-4 lg:right-20 text-pink-500/5 pointer-events-none">
+          <Heart className="w-32 h-32 lg:w-48 lg:h-48" fill="currentColor" />
         </div>
 
-        {/* Main Card */}
-        <div className="relative w-full max-w-3xl bg-white rounded-3xl shadow-[0_20px_40px_-10px_rgba(139,92,246,0.15)] overflow-hidden border border-slate-100 flex flex-col">
+        {/* Main card */}
+        <div className="w-full max-w-3xl bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100">
           
-          {/* Hero Section with Photos */}
-          <div className="relative w-full bg-[#f0ebfa] p-8 lg:p-10 flex flex-col items-center justify-center overflow-hidden">
-            {/* Birthday Badge */}
-            <div className="absolute top-6 right-6 lg:top-8 lg:right-8 z-20 animate-bounce" style={{ animationDuration: '3s' }}>
-              <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-purple-600 flex flex-col items-center justify-center text-white border-4 border-white shadow-xl transform rotate-12">
-                <span className="text-2xl lg:text-3xl font-extrabold leading-none">1st</span>
-                <span className="text-[10px] font-bold uppercase tracking-widest leading-none mt-0.5">B-Day</span>
+          {/* Hero section */}
+          <div className="relative bg-gradient-to-br from-purple-50 to-pink-50 p-6 sm:p-10 flex flex-col items-center text-center overflow-hidden">
+            
+            {/* Birthday badge */}
+            <div className="absolute top-6 right-6 sm:top-8 sm:right-8 z-20">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-purple-600 to-purple-700 rounded-full flex flex-col items-center justify-center text-white border-4 border-white shadow-xl transform rotate-12 animate-[bounce_3s_ease-in-out_infinite]">
+                <span className="text-2xl sm:text-3xl font-extrabold leading-none">1</span>
+                <span className="text-[9px] font-bold uppercase tracking-wider leading-none">Нас</span>
               </div>
             </div>
 
             {/* Photos */}
-            <div className="relative flex items-center justify-center gap-4 lg:gap-8 w-full max-w-xl mb-8 z-10">
-              {/* Left Photo */}
-              <div className="relative w-32 h-40 sm:w-40 sm:h-52 lg:w-48 lg:h-60 shrink-0">
-                <div className="absolute inset-0 transform -rotate-6 scale-90 opacity-90 hover:opacity-100 hover:rotate-0 hover:scale-100 transition-all duration-500 cursor-pointer">
-                  <div className="w-full h-full bg-white p-2 sm:p-3 shadow-lg rounded-xl">
-                    <img 
-                      src={babyImage}
-                      alt="Baby photo"
-                      className="w-full h-full object-cover rounded-lg"
-                    />
-                  </div>
+            <div className="relative flex items-center justify-center gap-3 sm:gap-6 mb-8 w-full max-w-2xl">
+              {/* Left photo */}
+              <div className="relative w-24 h-32 sm:w-32 sm:h-40 lg:w-40 lg:h-52 shrink-0 transform -rotate-6 hover:rotate-0 hover:scale-105 transition-all duration-500 cursor-pointer">
+                <div className="w-full h-full bg-white p-2 shadow-xl rounded-2xl">
+                  <img 
+                    src="C:\Users\dell\OneDrive\Pictures\5fb30994-a5a0-44e8-9a81-99e2bcdb50b3.jpeg"
+                    alt="Baby"
+                    className="w-full h-full object-cover rounded-xl"
+                  />
                 </div>
               </div>
 
-              {/* Center Photo */}
-              <div className="relative w-40 h-52 sm:w-52 sm:h-64 lg:w-60 lg:h-72 shrink-0 z-10">
-                <div className="absolute inset-0 transform hover:scale-105 transition-transform duration-500 shadow-2xl rounded-2xl cursor-pointer">
-                  <div className="w-full h-full bg-white p-2 sm:p-3 shadow-xl rounded-2xl">
-                    <img 
-                      src={babyImage}
-                      alt="Baby photo"
-                      className="w-full h-full object-cover rounded-xl"
-                    />
-                  </div>
+              {/* Center photo (main) */}
+              <div className="relative w-32 h-40 sm:w-44 sm:h-56 lg:w-52 lg:h-64 shrink-0 z-10 hover:scale-105 transition-transform duration-500 cursor-pointer">
+                <div className="w-full h-full bg-white p-2 sm:p-3 shadow-2xl rounded-2xl">
+                  <img 
+                    src="C:\Users\dell\OneDrive\Pictures\IMG_8791.jpeg"
+                    alt="Baby"
+                    className="w-full h-full object-cover rounded-xl"
+                  />
                 </div>
               </div>
 
-              {/* Right Photo */}
-              <div className="relative w-32 h-40 sm:w-40 sm:h-52 lg:w-48 lg:h-60 shrink-0">
-                <div className="absolute inset-0 transform rotate-6 scale-90 opacity-90 hover:opacity-100 hover:rotate-0 hover:scale-100 transition-all duration-500 cursor-pointer">
-                  <div className="w-full h-full bg-white p-2 sm:p-3 shadow-lg rounded-xl">
-                    <img 
-                      src={babyImage}
-                      alt="Baby photo"
-                      className="w-full h-full object-cover rounded-lg"
-                    />
-                  </div>
+              {/* Right photo */}
+              <div className="relative w-24 h-32 sm:w-32 sm:h-40 lg:w-40 lg:h-52 shrink-0 transform rotate-6 hover:rotate-0 hover:scale-105 transition-all duration-500 cursor-pointer">
+                <div className="w-full h-full bg-white p-2 shadow-xl rounded-2xl">
+                  <img 
+                    src="C:\Users\dell\OneDrive\Pictures\bfce5b85-a043-4433-8b5a-306f52fc8664.jpeg"
+                    alt="Baby"
+                    className="w-full h-full object-cover rounded-xl"
+                  />
                 </div>
               </div>
             </div>
 
-            {/* Countdown Timer */}
-            <div className="flex flex-col items-center gap-3 z-10">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-purple-400">Үдэшлэг эхлэх хүртэл</p>
-              <div className="flex items-center gap-3 sm:gap-4">
-                <div className="flex flex-col items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/50 backdrop-blur-sm border border-white/60 shadow-sm transition-transform hover:-translate-y-1 duration-300">
-                  <span className="text-xl sm:text-2xl font-extrabold text-slate-900 leading-none">05</span>
-                  <span className="text-[10px] font-bold uppercase text-purple-600 tracking-wide mt-1">Өдөр</span>
+            {/* Countdown */}
+            <div className="flex flex-col items-center gap-3">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-purple-400">Төрсөн өдөр эхлэх хүртэл</p>
+              <div className="flex items-center gap-2 sm:gap-4">
+                <div className="flex flex-col items-center justify-center w-14 h-14 sm:w-20 sm:h-20 rounded-2xl bg-white/50 backdrop-blur border border-white/60 shadow-md transition-transform hover:-translate-y-1">
+                  <span className="text-lg sm:text-2xl font-extrabold text-slate-900">05</span>
+                  <span className="text-[9px] sm:text-[10px] font-bold uppercase text-purple-600">Өдөр</span>
                 </div>
-                <span className="text-xl font-bold text-purple-400/40 animate-pulse pb-2">:</span>
-                <div className="flex flex-col items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/50 backdrop-blur-sm border border-white/60 shadow-sm transition-transform hover:-translate-y-1 duration-300">
-                  <span className="text-xl sm:text-2xl font-extrabold text-slate-900 leading-none">12</span>
-                  <span className="text-[10px] font-bold uppercase text-purple-600 tracking-wide mt-1">Цаг</span>
+                <span className="text-xl font-bold text-purple-400/40">:</span>
+                <div className="flex flex-col items-center justify-center w-14 h-14 sm:w-20 sm:h-20 rounded-2xl bg-white/50 backdrop-blur border border-white/60 shadow-md transition-transform hover:-translate-y-1">
+                  <span className="text-lg sm:text-2xl font-extrabold text-slate-900">12</span>
+                  <span className="text-[9px] sm:text-[10px] font-bold uppercase text-purple-600">Цаг</span>
                 </div>
-                <span className="text-xl font-bold text-purple-400/40 animate-pulse pb-2">:</span>
-                <div className="flex flex-col items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/50 backdrop-blur-sm border border-white/60 shadow-sm transition-transform hover:-translate-y-1 duration-300">
-                  <span className="text-xl sm:text-2xl font-extrabold text-slate-900 leading-none">45</span>
-                  <span className="text-[10px] font-bold uppercase text-purple-600 tracking-wide mt-1">Минут</span>
+                <span className="text-xl font-bold text-purple-400/40">:</span>
+                <div className="flex flex-col items-center justify-center w-14 h-14 sm:w-20 sm:h-20 rounded-2xl bg-white/50 backdrop-blur border border-white/60 shadow-md transition-transform hover:-translate-y-1">
+                  <span className="text-lg sm:text-2xl font-extrabold text-slate-900">45</span>
+                  <span className="text-[9px] sm:text-[10px] font-bold uppercase text-purple-600">Мин</span>
                 </div>
               </div>
             </div>
           </div>
+          
 
-          {/* Content Section */}
-          <div className="flex-1 flex flex-col p-6 sm:p-10 lg:p-12 text-center relative z-10">
-            <div className="mb-10">
-              <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-purple-100 text-purple-600 text-xs font-bold uppercase tracking-wider mb-5">
-                <Star size={16} fill="currentColor" />
+          {/* Content section */}
+          <div className="p-6 sm:p-10 lg:p-12">
+            
+            {/* Title */}
+            <div className="text-center mb-10">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-100 text-purple-600 text-xs font-bold uppercase tracking-wider mb-4">
+                <Star className="w-4 h-4" fill="currentColor" />
                 Таныг урьж байна
               </div>
-              <h1 className="text-slate-900 tracking-tight text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-[1.1] mb-4">
-                Хэн нэг жилтэй болж байна вэ!
+              <h1 className="text-base sm:text-lg text-purple-600 font-medium max-w-xl mx-auto">
+                Эрхэм таныг бидний хайрт хүү Б.Тэнүүнгүний 1 насны төрсөн өдрийн баярт хүрэлцэн ирэхийг урьж байна.
               </h1>
-              <p className="text-purple-600 text-lg font-medium leading-relaxed max-w-lg mx-auto">
-                Бялуу, бөмбөлөг, хөгжилтэй үдэшлэгт таныг урьж байна. Оливерын том мөч тэмдэглэхээр ирээрэй!
-              </p>
             </div>
 
-            {/* Event Details */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10 border-y border-slate-100 py-8">
-              <div className="flex flex-col items-center gap-2">
-                <div className="w-12 h-12 rounded-2xl bg-purple-100 flex items-center justify-center text-purple-600 mb-1">
-                  <Calendar size={24} />
+            {/* Event details */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10 py-8 border-y border-slate-100">
+              <div className="flex flex-col items-center text-center gap-2 p-4 rounded-2xl hover:bg-slate-50 transition-colors">
+                <div className="w-12 h-12 bg-purple-100 rounded-2xl flex items-center justify-center mb-1">
+                  <Calendar className="w-6 h-6 text-purple-600" />
                 </div>
-                <h3 className="text-xs font-bold text-purple-400 uppercase tracking-wide">Хэзээ</h3>
-                <div>
-                  <p className="text-lg font-bold text-slate-900">10 сарын 14</p>
-                  <p className="text-sm text-purple-600">Бямба гараг, 2023</p>
-                </div>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Хэзээ</p>
+                <p className="text-lg font-bold text-slate-900">1 сарын 18</p>
+                <p className="text-sm text-purple-600">Ням гараг, 2026</p>
               </div>
-              <div className="flex flex-col items-center gap-2 sm:border-x border-slate-100">
-                <div className="w-12 h-12 rounded-2xl bg-purple-100 flex items-center justify-center text-purple-600 mb-1">
-                  <Clock size={24} />
+
+              <div className="flex flex-col items-center text-center gap-2 p-4 rounded-2xl hover:bg-slate-50 transition-colors sm:border-x border-slate-100">
+                <div className="w-12 h-12 bg-purple-100 rounded-2xl flex items-center justify-center mb-1">
+                  <Clock className="w-6 h-6 text-purple-600" />
                 </div>
-                <h3 className="text-xs font-bold text-purple-400 uppercase tracking-wide">Цаг</h3>
-                <div>
-                  <p className="text-lg font-bold text-slate-900">14:00 цаг</p>
-                  <p className="text-sm text-purple-600">17:00 хүртэл</p>
-                </div>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Цаг</p>
+                <p className="text-lg font-bold text-slate-900">13:30 цаг</p>
+                <p className="text-sm text-purple-600">17:00 хүртэл</p>
               </div>
-              <div className="flex flex-col items-center gap-2">
-                <div className="w-12 h-12 rounded-2xl bg-purple-100 flex items-center justify-center text-purple-600 mb-1">
-                  <MapPin size={24} />
+
+              <div className="flex flex-col items-center text-center gap-2 p-4 rounded-2xl hover:bg-slate-50 transition-colors">
+                <div className="w-12 h-12 bg-purple-100 rounded-2xl flex items-center justify-center mb-1">
+                  <MapPin className="w-6 h-6 text-purple-600" />
                 </div>
-                <h3 className="text-xs font-bold text-purple-400 uppercase tracking-wide">Хаана</h3>
-                <div>
-                  <p className="text-lg font-bold text-slate-900">The Garden</p>
-                  <p className="text-sm text-purple-600">123 Sunshine Ln</p>
-                </div>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Хаана</p>
+                <p className="text-lg font-bold text-slate-900">Sunny kids cafe</p>
+                <p className="text-sm text-purple-600">ХУД-19 хороо, Улаанбаатар 17042</p>
               </div>
             </div>
 
             {/* Map */}
-            <div className="w-full mb-10">
+            <div className="mb-8">
               <a 
-                href="https://maps.google.com" 
+                href="https://maps.app.goo.gl/7TRgNkWzp4qgB7Pz5"
                 target="_blank"
-                rel="noopener noreferrer"
-                className="group block relative w-full h-32 sm:h-40 rounded-2xl overflow-hidden border border-slate-100 hover:border-purple-200 transition-colors shadow-sm"
+                rel="noopener noreferrer" 
+                className="group block relative w-full h-40 sm:h-48 rounded-2xl overflow-hidden border-2 border-slate-100 hover:border-purple-300 transition-all shadow-md hover:shadow-xl"
               >
                 <img 
-                  src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/-122.4194,37.7749,12,0/600x300@2x?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw"
+                  src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s+8B5CF6(-122.4194,37.7749)/-122.4194,37.7749,12,0/600x300@2x?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw"
                   alt="Map"
-                  className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end justify-center pb-4">
-                  <div className="flex items-center gap-2 text-white font-bold text-sm bg-black/40 backdrop-blur px-4 py-2 rounded-full shadow-sm group-hover:bg-purple-600 transition-colors">
-                    <Navigation size={18} />
-                    The Garden руу чиглүүлэг авах
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex items-end justify-center pb-4">
+                  <div className="flex items-center gap-2 text-white font-bold text-sm bg-black/50 backdrop-blur-sm px-5 py-2.5 rounded-full shadow-lg group-hover:bg-purple-600 transition-all">
+                    <Navigation className="w-4 h-4" />
+                    Google maps-аар харах
                   </div>
                 </div>
               </a>
             </div>
 
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-              <button className="w-full sm:w-auto min-w-[200px] py-3.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-lg shadow-[0_4px_14px_0_rgba(111,47,238,0.39)] hover:shadow-[0_6px_20px_rgba(111,47,238,0.23)] hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2">
-                <Heart size={20} fill="currentColor" />
-                RSVP Хийх
-              </button>
-              <a 
-                href="#" 
-                className="w-full sm:w-auto min-w-[200px] px-6 py-3.5 rounded-xl border border-slate-200 bg-transparent hover:bg-purple-50 text-purple-600 font-semibold flex items-center justify-center gap-2 transition-colors"
-              >
-                <Gift size={20} />
-                Бэлгийн Жагсаалт
-              </a>
-            </div>
-
             {/* Footer */}
-            <div className="mt-8 pt-6 border-t border-slate-100 flex flex-wrap justify-center items-center gap-4 text-xs text-purple-400">
-              <p>
-                <span className="font-bold text-slate-900">Sarah & Mike</span>-аас зохион байгуулав
+            <div className="text-center pt-6 border-t border-slate-100">
+              <p className="text-sm text-slate-500">
+                Хүндэтгэсэн аав <span className="font-bold text-slate-700">Л.Болдсүх</span> ээж <span className="font-bold text-slate-700">Ч.Анхцэцэг</span>
               </p>
-              <span className="hidden sm:block opacity-30">•</span>
-              <a href="#" className="hover:text-purple-600 transition-colors">
-                Асуулт байвал эзэнд холбогдох
-              </a>
             </div>
           </div>
         </div>
 
-        {/* Powered By */}
-        <div className="mt-8 text-center">
-          <p className="text-purple-400 text-sm font-medium opacity-70">
-            Powered by TinyCelebrations
-          </p>
-        </div>
+        {/* Powered by - removed */}
       </main>
     </div>
   );
