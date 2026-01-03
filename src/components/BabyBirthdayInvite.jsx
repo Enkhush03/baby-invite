@@ -1,8 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Heart, Truck, Calendar, Clock, MapPin, Gift, Star, Navigation } from 'lucide-react';
+
+// Add Google Fonts
+if (typeof document !== 'undefined') {
+  const link = document.createElement('link');
+  link.href = 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600;700&display=swap';
+  link.rel = 'stylesheet';
+  document.head.appendChild(link);
+}
 
 export default function BabyInvitation() {
   const [isOpened, setIsOpened] = useState(false);
+  const [babyImage] = useState('https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=400&h=500&fit=crop');
+
+  useEffect(() => {
+    // Preload images
+    const img = new Image();
+    img.src = babyImage;
+  }, [babyImage]);
 
   if (!isOpened) {
     return (
@@ -66,8 +81,8 @@ export default function BabyInvitation() {
                 <p className="text-[#FB7185] font-bold text-xs uppercase tracking-[0.2em]">
                   Онцгой Хүргэлт
                 </p>
-                <h2 className="font-['Caveat'] text-5xl text-slate-700 -rotate-2">
-                  The Smith Family
+                <h2 className="font-['Caveat',cursive] text-5xl text-slate-700 -rotate-2">
+                  Smith Family
                 </h2>
                 <p className="text-slate-500 text-sm pt-2 max-w-[200px] mx-auto leading-relaxed">
                   Та төрсөн өдрийн урилга хүлээн авлаа!
@@ -161,7 +176,11 @@ export default function BabyInvitation() {
               <div className="relative w-32 h-40 sm:w-40 sm:h-52 lg:w-48 lg:h-60 shrink-0">
                 <div className="absolute inset-0 transform -rotate-6 scale-90 opacity-90 hover:opacity-100 hover:rotate-0 hover:scale-100 transition-all duration-500 cursor-pointer">
                   <div className="w-full h-full bg-white p-2 sm:p-3 shadow-lg rounded-xl">
-                    <div className="w-full h-full overflow-hidden rounded-lg bg-gradient-to-br from-purple-100 to-pink-100" />
+                    <img 
+                      src={babyImage}
+                      alt="Baby photo"
+                      className="w-full h-full object-cover rounded-lg"
+                    />
                   </div>
                 </div>
               </div>
@@ -170,7 +189,11 @@ export default function BabyInvitation() {
               <div className="relative w-40 h-52 sm:w-52 sm:h-64 lg:w-60 lg:h-72 shrink-0 z-10">
                 <div className="absolute inset-0 transform hover:scale-105 transition-transform duration-500 shadow-2xl rounded-2xl cursor-pointer">
                   <div className="w-full h-full bg-white p-2 sm:p-3 shadow-xl rounded-2xl">
-                    <div className="w-full h-full overflow-hidden rounded-xl bg-gradient-to-br from-purple-100 to-pink-100" />
+                    <img 
+                      src={babyImage}
+                      alt="Baby photo"
+                      className="w-full h-full object-cover rounded-xl"
+                    />
                   </div>
                 </div>
               </div>
@@ -179,7 +202,11 @@ export default function BabyInvitation() {
               <div className="relative w-32 h-40 sm:w-40 sm:h-52 lg:w-48 lg:h-60 shrink-0">
                 <div className="absolute inset-0 transform rotate-6 scale-90 opacity-90 hover:opacity-100 hover:rotate-0 hover:scale-100 transition-all duration-500 cursor-pointer">
                   <div className="w-full h-full bg-white p-2 sm:p-3 shadow-lg rounded-xl">
-                    <div className="w-full h-full overflow-hidden rounded-lg bg-gradient-to-br from-purple-100 to-pink-100" />
+                    <img 
+                      src={babyImage}
+                      alt="Baby photo"
+                      className="w-full h-full object-cover rounded-lg"
+                    />
                   </div>
                 </div>
               </div>
@@ -259,14 +286,20 @@ export default function BabyInvitation() {
             {/* Map */}
             <div className="w-full mb-10">
               <a 
-                href="#" 
+                href="https://maps.google.com" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group block relative w-full h-32 sm:h-40 rounded-2xl overflow-hidden border border-slate-100 hover:border-purple-200 transition-colors shadow-sm"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-100 to-pink-100 opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" />
+                <img 
+                  src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/-122.4194,37.7749,12,0/600x300@2x?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw"
+                  alt="Map"
+                  className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end justify-center pb-4">
                   <div className="flex items-center gap-2 text-white font-bold text-sm bg-black/40 backdrop-blur px-4 py-2 rounded-full shadow-sm group-hover:bg-purple-600 transition-colors">
                     <Navigation size={18} />
-                    The Enchanted Garden руу чиглүүлэг авах
+                    The Garden руу чиглүүлэг авах
                   </div>
                 </div>
               </a>
