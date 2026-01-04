@@ -5,32 +5,34 @@
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui;
   --font-handwriting: "Caveat", cursive;
 
-  /* Baby Blue болон Space өнгөнүүд */
+  /* Өнгөнүүд */
   --color-space-dark: #0f172a;
   --color-baby-blue: #bae6fd;
   --color-rocket-orange: #fb923c;
 
-  --keyframes-float: {
+  /* АНИМЭЙШНҮҮД - Бичиглэлийг зассан */
+  @keyframes float {
     0%, 100% { transform: translateY(0px) rotate(0deg); }
     50% { transform: translateY(-15px) rotate(2deg); }
-  };
+  }
   --animation-float: float 5s ease-in-out infinite;
 
-  --keyframes-twinkle: {
+  @keyframes twinkle {
     0%, 100% { opacity: 0.3; transform: scale(1); }
     50% { opacity: 1; transform: scale(1.2); }
-  };
+  }
   --animation-twinkle: twinkle 3s ease-in-out infinite;
-  --keyframes-spin-slow: {
+
+  @keyframes spin-slow {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
-  };
+  }
   --animation-spin-slow: spin-slow 20s linear infinite;
 
-  --keyframes-float-alt: {
+  @keyframes float-alt {
     0%, 100% { transform: translate(0, 0) rotate(0deg); }
     33% { transform: translate(10px, -15px) rotate(5deg); }
     66% { transform: translate(-10px, 10px) rotate(-5deg); }
-  };
+  }
   --animation-float-alt: float-alt 8s ease-in-out infinite;
 }
