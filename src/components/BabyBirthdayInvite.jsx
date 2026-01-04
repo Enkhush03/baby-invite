@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Heart, Calendar, Clock, MapPin, Star, Navigation } from 'lucide-react';
-import p1 from 'C:\Users\dell\baby-invite\src\assets\p1.jpeg';
-import p2 from 'C:\Users\dell\baby-invite\src\assets\p2.jpeg';
-import p3 from 'C:\Users\dell\baby-invite\src\assets\p3.jpeg';
+import p1 from "../assets/p1.jpeg";
+import p2 from "../assets/p2.jpeg";
+import p3 from "../assets/p3.jpeg";
+
 export default function BabyInvitation() {
   const [isOpened, setIsOpened] = useState(false);
   // Үдэшлэгийн огноо (Та энийг өөрчилж болно)
