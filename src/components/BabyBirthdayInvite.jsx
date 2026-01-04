@@ -41,12 +41,12 @@ export default function BabyBirthdayInvite() {
 
   if (!isOpened) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50 flex items-center justify-center p-4 sm:p-6 font-sans">
+      <div className="min-h-screen bg-linear-to-br from-pink-50 via-purple-50 to-blue-50 flex items-center justify-center p-4 sm:p-6 font-sans">
 
         {/* Background blobs */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-[-10%] left-[-5%] w-64 sm:w-96 h-64 sm:h-96 bg-pink-300/30 rounded-full blur-3xl animate-[float_6s_ease-in-out_infinite]" />
-          <div className="absolute bottom-[-10%] right-[-5%] w-72 sm:w-[500px] h-72 sm:h-[500px] bg-purple-300/30 rounded-full blur-3xl animate-[float_8s_ease-in-out_infinite] [animation-delay:-2s]" />
+          <div className="absolute bottom-[-10%] right-[-5%] w-72 sm:w-125 h-72 sm:h-125 bg-purple-300/30 rounded-full blur-3xl animate-[float_8s_ease-in-out_infinite] [animation-delay:-2s]" />
           <div className="absolute top-[20%] right-[10%] w-48 sm:w-72 h-48 sm:h-72 bg-blue-300/20 rounded-full blur-3xl animate-[float_7s_ease-in-out_infinite] [animation-delay:-4s]" />
         </div>
 
@@ -55,7 +55,7 @@ export default function BabyBirthdayInvite() {
           <div className="bg-white rounded-3xl shadow-2xl overflow-hidden transform transition-all duration-500 hover:-translate-y-2 hover:shadow-3xl">
             
             {/* Envelope flap SVG */}
-            <div className="relative h-48 bg-gradient-to-br from-slate-50 to-slate-100">
+            <div className="relative h-48 bg-linear-to-br from-slate-50 to-slate-100">
               <svg viewBox="0 0 400 200" className="w-full h-full drop-shadow-lg">
                 <defs>
                   <linearGradient id="flapGrad" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -73,7 +73,7 @@ export default function BabyBirthdayInvite() {
                   onClick={() => setIsOpened(true)}
                   className="relative group focus:outline-none focus:ring-4 focus:ring-pink-300 rounded-full"
                 >
-                  <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full border-4 sm:border-[6px] border-white shadow-2xl flex items-center justify-center text-white transform transition-all duration-300 group-hover:scale-110 group-active:scale-95">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 bg-linear-to-br from-pink-500 to-rose-500 rounded-full border-4 sm:border-[6px] border-white shadow-2xl flex items-center justify-center text-white transform transition-all duration-300 group-hover:scale-110 group-active:scale-95">
                     <Heart className="w-8 h-8 sm:w-10 sm:h-10" fill="currentColor" />
                   </div>
                   <div className="absolute inset-0 rounded-full border-2 border-pink-400 opacity-0 group-hover:opacity-100 animate-ping" />
@@ -95,15 +95,15 @@ export default function BabyBirthdayInvite() {
                 Би 1 нас хүрлээ
               </h2>
               
-              <p className="text-slate-400 text-sm mb-8 max-w-[250px] mx-auto leading-relaxed">
+              <p className="text-slate-400 text-sm mb-8 max-w-62.5 mx-auto leading-relaxed">
                 Та төрсөн өдрийн урилга хүлээн авлаа!
               </p>
 
               <button 
                 onClick={() => setIsOpened(true)}
-                className="w-full bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white rounded-full py-4 font-bold text-base sm:text-lg shadow-lg shadow-purple-500/30 flex items-center justify-center gap-3 transition-all transform hover:scale-[1.02] active:scale-95 relative overflow-hidden group"
+                className="w-full bg-linear-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white rounded-full py-4 font-bold text-base sm:text-lg shadow-lg shadow-purple-500/30 flex items-center justify-center gap-3 transition-all transform hover:scale-[1.02] active:scale-95 relative overflow-hidden group"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-[shimmer_1.5s_infinite]" />
+                <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-[shimmer_1.5s_infinite]" />
                 <Heart className="w-5 h-5 group-hover:scale-110 transition-transform" />
                 <span>Урилга Нээх</span>
               </button>
@@ -128,7 +128,7 @@ export default function BabyBirthdayInvite() {
 
   // Opened invitation
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 font-sans">
+    <div className="min-h-screen bg-linear-to-br from-slate-50 to-slate-100 font-sans">
 
       {/* Main content */}
       <main className="flex flex-col items-center justify-center min-h-screen py-8 lg:py-12 px-4 sm:px-6 relative">
@@ -145,11 +145,11 @@ export default function BabyBirthdayInvite() {
         <div className="w-full max-w-3xl bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100">
           
           {/* Hero section */}
-          <div className="relative bg-gradient-to-br from-purple-50 to-pink-50 p-6 sm:p-10 flex flex-col items-center text-center overflow-hidden">
+          <div className="relative bg-linear-to-br from-purple-50 to-pink-50 p-6 sm:p-10 flex flex-col items-center text-center overflow-hidden">
             
             {/* Birthday badge */}
             <div className="absolute top-6 right-6 sm:top-8 sm:right-8 z-20">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-purple-600 to-purple-700 rounded-full flex flex-col items-center justify-center text-white border-4 border-white shadow-xl transform rotate-12 animate-[bounce_3s_ease-in-out_infinite]">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-linear-to-br from-purple-600 to-purple-700 rounded-full flex flex-col items-center justify-center text-white border-4 border-white shadow-xl transform rotate-12 animate-[bounce_3s_ease-in-out_infinite]">
                 <span className="text-2xl sm:text-3xl font-extrabold leading-none">1</span>
                 <span className="text-[10px] font-bold uppercase tracking-wider leading-none">Нас</span>
               </div>
@@ -270,7 +270,7 @@ export default function BabyBirthdayInvite() {
                   alt="Map"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex items-end justify-center pb-4">
+                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent flex items-end justify-center pb-4">
                   <div className="flex items-center gap-2 text-white font-bold text-sm bg-black/50 backdrop-blur-sm px-5 py-2.5 rounded-full shadow-lg group-hover:bg-purple-600 transition-all">
                     <Navigation className="w-4 h-4" />
                     Google maps-аар харах
