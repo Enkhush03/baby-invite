@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Heart, Calendar, Clock, MapPin, Star, Navigation, Rocket, Orbit, Cake } from 'lucide-react';
+import { Heart, Calendar, Clock, MapPin, Star, Navigation, Rocket, Orbit, Cake, Moon, Gift } from 'lucide-react';
 import p1 from "../assets/p1.jpeg";
 import p2 from "../assets/p2.jpeg";
 import p3 from "../assets/p3.jpeg";
@@ -53,12 +53,11 @@ export default function BabyBirthdayInvite() {
     <Orbit className="absolute top-10 left-[10%] text-sky-500/20 w-32 h-32 animate-spin-slow" />
     <Moon className="absolute bottom-40 right-[15%] text-purple-500/20 w-24 h-24 animate-float-alt" />
     
-    {/* Таны асуусан бялууны хэсэг */}
     <Cake className="absolute top-40 right-[5%] text-pink-500/20 w-16 h-16 animate-float-alt" />
     
     <Gift className="absolute bottom-20 left-[5%] text-sky-400/20 w-20 h-20 animate-float" />
     
-    {/* Гэрлийн туяанууд (Background glow) */}
+    
     <div className="absolute top-[-20%] left-[-10%] w-125 h-125 bg-sky-600/10 rounded-full blur-[120px]" />
     <div className="absolute bottom-[-10%] right-[-10%] w-100 h-100 bg-purple-600/10 rounded-full blur-[120px]" />
   </div>
