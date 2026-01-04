@@ -221,7 +221,7 @@ export default function BabyBirthdayInvite() {
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="bg-sky-500 text-white px-6 py-2 rounded-full font-bold text-sm shadow-xl flex items-center gap-2 group-hover:bg-sky-400 transition-colors">
                   <Navigation className="w-4 h-4" />
-                  MAPS-аах харах
+                  MAPS-аар харах
                 </div>
               </div>
             </a>
