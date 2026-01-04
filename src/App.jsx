@@ -1,4 +1,4 @@
-import BabyBirthdayInvite from './components/BabyInvitation';
+import BabyInvitation from './components/BabyInvitation';
 
 export default function App() {
   return <BabyInvitation />;
