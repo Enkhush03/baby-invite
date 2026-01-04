@@ -6,7 +6,7 @@ export default {
   ],
   theme: {
     extend: {
-      fontFamily:{
+      fontFamily: {
         sans: ['Plus Jakarta Sans', 'sans-serif'],
         handwriting: ['Caveat', 'cursive'],
       },
@@ -16,7 +16,6 @@ export default {
           '50%': { transform: 'translateY(-20px)' },
         },
         shimmer: {
-          '0%': { transform: 'translateX(-100%)' },
           '100%': { transform: 'translateX(100%)' },
         },
       },
@@ -27,4 +26,4 @@ export default {
     },
   },
   plugins: [],
-};
+}
