@@ -4,7 +4,7 @@ import p1 from "../assets/p1.jpeg";
 import p2 from "../assets/p2.jpeg";
 import p3 from "../assets/p3.jpeg";
 
-export default function BabyInvitation() {
+export default function BabyBirthdayInvite() {
   const [isOpened, setIsOpened] = useState(false);
   // Үдэшлэгийн огноо (Та энийг өөрчилж болно)
   const eventDate = new Date('2026-01-18T13:30:00'); // 2026 оны 10 сарын 14, 14:00 цаг
