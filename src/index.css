@@ -21,4 +21,16 @@
     50% { opacity: 1; transform: scale(1.2); }
   };
   --animation-twinkle: twinkle 3s ease-in-out infinite;
+  --keyframes-spin-slow: {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  };
+  --animation-spin-slow: spin-slow 20s linear infinite;
+
+  --keyframes-float-alt: {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(10px, -15px) rotate(5deg); }
+    66% { transform: translate(-10px, 10px) rotate(-5deg); }
+  };
+  --animation-float-alt: float-alt 8s ease-in-out infinite;
 }
