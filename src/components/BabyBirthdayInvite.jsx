@@ -200,12 +200,12 @@ export default function BabyInvitation() {
                 </div>
                 <span className="text-xl font-bold text-purple-400/40">:</span>
                 <div className="flex flex-col items-center justify-center w-14 h-14 sm:w-20 sm:h-20 rounded-2xl bg-white/50 backdrop-blur border border-white/60 shadow-md transition-transform hover:-translate-y-1">
-                  <span className="text-lg sm:text-2xl font-extrabold text-slate-900">{timeLeft.days}</span>
+                  <span className="text-lg sm:text-2xl font-extrabold text-slate-900">{timeLeft.hours}</span>
                   <span className="text-[9px] sm:text-[10px] font-bold uppercase text-purple-600">Цаг</span>
                 </div>
                 <span className="text-xl font-bold text-purple-400/40">:</span>
                 <div className="flex flex-col items-center justify-center w-14 h-14 sm:w-20 sm:h-20 rounded-2xl bg-white/50 backdrop-blur border border-white/60 shadow-md transition-transform hover:-translate-y-1">
-                  <span className="text-lg sm:text-2xl font-extrabold text-slate-900">{timeLeft.days}</span>
+                  <span className="text-lg sm:text-2xl font-extrabold text-slate-900">{timeLeft.minutes}</span>
                   <span className="text-[9px] sm:text-[10px] font-bold uppercase text-purple-600">Мин</span>
                 </div>
               </div>
