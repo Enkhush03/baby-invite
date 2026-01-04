@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Heart, Calendar, Clock, MapPin, Star, Navigation } from 'lucide-react';
-
+import p1 from 'C:\Users\dell\baby-invite\src\assets\p1.jpeg';
+import p2 from 'C:\Users\dell\baby-invite\src\assets\p2.jpeg';
+import p3 from 'C:\Users\dell\baby-invite\src\assets\p3.jpeg';
 export default function BabyInvitation() {
   const [isOpened, setIsOpened] = useState(false);
   // Үдэшлэгийн огноо (Та энийг өөрчилж болно)
@@ -158,8 +160,7 @@ export default function BabyInvitation() {
               <div className="relative w-24 h-32 sm:w-32 sm:h-40 lg:w-40 lg:h-52 shrink-0 transform -rotate-6 hover:rotate-0 hover:scale-105 transition-all duration-500 cursor-pointer">
                 <div className="w-full h-full bg-white p-2 shadow-xl rounded-2xl">
                   <img 
-                    src="C:\Users\dell\OneDrive\Pictures\5fb30994-a5a0-44e8-9a81-99e2bcdb50b3.jpeg"
-                    alt="Baby"
+                    src={p2}
                     className="w-full h-full object-cover rounded-xl"
                   />
                 </div>
@@ -169,7 +170,7 @@ export default function BabyInvitation() {
               <div className="relative w-32 h-40 sm:w-44 sm:h-56 lg:w-52 lg:h-64 shrink-0 z-10 hover:scale-105 transition-transform duration-500 cursor-pointer">
                 <div className="w-full h-full bg-white p-2 sm:p-3 shadow-2xl rounded-2xl">
                   <img 
-                    src="C:\Users\dell\OneDrive\Pictures\IMG_8791.jpeg"
+                    src={p1}
                     alt="Baby"
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -180,7 +181,7 @@ export default function BabyInvitation() {
               <div className="relative w-24 h-32 sm:w-32 sm:h-40 lg:w-40 lg:h-52 shrink-0 transform rotate-6 hover:rotate-0 hover:scale-105 transition-all duration-500 cursor-pointer">
                 <div className="w-full h-full bg-white p-2 shadow-xl rounded-2xl">
                   <img 
-                    src="C:\Users\dell\OneDrive\Pictures\bfce5b85-a043-4433-8b5a-306f52fc8664.jpeg"
+                    src={p3}
                     alt="Baby"
                     className="w-full h-full object-cover rounded-xl"
                   />
@@ -193,17 +194,17 @@ export default function BabyInvitation() {
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-purple-400">Төрсөн өдөр эхлэх хүртэл</p>
               <div className="flex items-center gap-2 sm:gap-4">
                 <div className="flex flex-col items-center justify-center w-14 h-14 sm:w-20 sm:h-20 rounded-2xl bg-white/50 backdrop-blur border border-white/60 shadow-md transition-transform hover:-translate-y-1">
-                  <span className="text-lg sm:text-2xl font-extrabold text-slate-900">05</span>
+                  <span className="text-lg sm:text-2xl font-extrabold text-slate-900">{timeLeft.days}</span>
                   <span className="text-[9px] sm:text-[10px] font-bold uppercase text-purple-600">Өдөр</span>
                 </div>
                 <span className="text-xl font-bold text-purple-400/40">:</span>
                 <div className="flex flex-col items-center justify-center w-14 h-14 sm:w-20 sm:h-20 rounded-2xl bg-white/50 backdrop-blur border border-white/60 shadow-md transition-transform hover:-translate-y-1">
-                  <span className="text-lg sm:text-2xl font-extrabold text-slate-900">12</span>
+                  <span className="text-lg sm:text-2xl font-extrabold text-slate-900">{timeLeft.days}</span>
                   <span className="text-[9px] sm:text-[10px] font-bold uppercase text-purple-600">Цаг</span>
                 </div>
                 <span className="text-xl font-bold text-purple-400/40">:</span>
                 <div className="flex flex-col items-center justify-center w-14 h-14 sm:w-20 sm:h-20 rounded-2xl bg-white/50 backdrop-blur border border-white/60 shadow-md transition-transform hover:-translate-y-1">
-                  <span className="text-lg sm:text-2xl font-extrabold text-slate-900">45</span>
+                  <span className="text-lg sm:text-2xl font-extrabold text-slate-900">{timeLeft.days}</span>
                   <span className="text-[9px] sm:text-[10px] font-bold uppercase text-purple-600">Мин</span>
                 </div>
               </div>
