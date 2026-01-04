@@ -151,7 +151,7 @@ export default function BabyBirthdayInvite() {
             <div className="absolute top-6 right-6 sm:top-8 sm:right-8 z-20">
               <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-purple-600 to-purple-700 rounded-full flex flex-col items-center justify-center text-white border-4 border-white shadow-xl transform rotate-12 animate-[bounce_3s_ease-in-out_infinite]">
                 <span className="text-2xl sm:text-3xl font-extrabold leading-none">1</span>
-                <span className="text-[9px] font-bold uppercase tracking-wider leading-none">Нас</span>
+                <span className="text-[10px] font-bold uppercase tracking-wider leading-none">Нас</span>
               </div>
             </div>
 
@@ -196,17 +196,17 @@ export default function BabyBirthdayInvite() {
               <div className="flex items-center gap-2 sm:gap-4">
                 <div className="flex flex-col items-center justify-center w-14 h-14 sm:w-20 sm:h-20 rounded-2xl bg-white/50 backdrop-blur border border-white/60 shadow-md transition-transform hover:-translate-y-1">
                   <span className="text-lg sm:text-2xl font-extrabold text-slate-900">{timeLeft.days}</span>
-                  <span className="text-[9px] sm:text-[10px] font-bold uppercase text-purple-600">Өдөр</span>
+                  <span className="text-[10px] font-bold uppercase text-purple-600">Өдөр</span>
                 </div>
                 <span className="text-xl font-bold text-purple-400/40">:</span>
                 <div className="flex flex-col items-center justify-center w-14 h-14 sm:w-20 sm:h-20 rounded-2xl bg-white/50 backdrop-blur border border-white/60 shadow-md transition-transform hover:-translate-y-1">
                   <span className="text-lg sm:text-2xl font-extrabold text-slate-900">{timeLeft.hours}</span>
-                  <span className="text-[9px] sm:text-[10px] font-bold uppercase text-purple-600">Цаг</span>
+                  <span className="text-[10px] font-bold uppercase text-purple-600">Цаг</span>
                 </div>
                 <span className="text-xl font-bold text-purple-400/40">:</span>
                 <div className="flex flex-col items-center justify-center w-14 h-14 sm:w-20 sm:h-20 rounded-2xl bg-white/50 backdrop-blur border border-white/60 shadow-md transition-transform hover:-translate-y-1">
                   <span className="text-lg sm:text-2xl font-extrabold text-slate-900">{timeLeft.minutes}</span>
-                  <span className="text-[9px] sm:text-[10px] font-bold uppercase text-purple-600">Мин</span>
+                  <span className="text-[10px] font-bold uppercase text-purple-600">Мин</span>
                 </div>
               </div>
             </div>
@@ -222,7 +222,7 @@ export default function BabyBirthdayInvite() {
                 <Star className="w-4 h-4" fill="currentColor" />
                 Таныг урьж байна
               </div>
-              <h1 className="text-base sm:text-lg text-purple-600 font-medium max-w-xl mx-auto">
+              <h1 className="text-lg sm:text-xl text-purple-600 font-medium max-w-xl mx-auto">
                 Эрхэм таныг бидний хайрт хүү Б.Тэнүүнгүний 1 насны төрсөн өдрийн баярт хүрэлцэн ирэхийг урьж байна.
               </h1>
             </div>
@@ -233,7 +233,7 @@ export default function BabyBirthdayInvite() {
                 <div className="w-12 h-12 bg-purple-100 rounded-2xl flex items-center justify-center mb-1">
                   <Calendar className="w-6 h-6 text-purple-600" />
                 </div>
-                <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Хэзээ</p>
+                <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Хэзээ</p>
                 <p className="text-lg font-bold text-slate-900">1 сарын 18</p>
                 <p className="text-sm text-purple-600">Ням гараг, 2026</p>
               </div>
@@ -242,7 +242,7 @@ export default function BabyBirthdayInvite() {
                 <div className="w-12 h-12 bg-purple-100 rounded-2xl flex items-center justify-center mb-1">
                   <Clock className="w-6 h-6 text-purple-600" />
                 </div>
-                <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Цаг</p>
+                <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Цаг</p>
                 <p className="text-lg font-bold text-slate-900">13:30 цаг</p>
                 <p className="text-sm text-purple-600">17:00 хүртэл</p>
               </div>
@@ -251,7 +251,7 @@ export default function BabyBirthdayInvite() {
                 <div className="w-12 h-12 bg-purple-100 rounded-2xl flex items-center justify-center mb-1">
                   <MapPin className="w-6 h-6 text-purple-600" />
                 </div>
-                <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Хаана</p>
+                <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Хаана</p>
                 <p className="text-lg font-bold text-slate-900">Sunny kids cafe</p>
                 <p className="text-sm text-purple-600">ХУД-19 хороо, Улаанбаатар 17042</p>
               </div>
@@ -266,7 +266,7 @@ export default function BabyBirthdayInvite() {
                 className="group block relative w-full h-40 sm:h-48 rounded-2xl overflow-hidden border-2 border-slate-100 hover:border-purple-300 transition-all shadow-md hover:shadow-xl"
               >
                 <img 
-                  src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s+8B5CF6(-122.4194,37.7749)/-122.4194,37.7749,12,0/600x300@2x?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw"
+                  src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s+8B5CF6(106.9057,47.9184)/106.9057,47.9184,12,0/600x300@2x?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw"
                   alt="Map"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
@@ -281,7 +281,7 @@ export default function BabyBirthdayInvite() {
 
             {/* Footer */}
             <div className="text-center pt-6 border-t border-slate-100">
-              <p className="text-sm text-slate-500">
+              <p className="text-base sm:text-sm text-slate-500">
                 Хүндэтгэсэн аав <span className="font-bold text-slate-700">Л.Болдсүх</span> ээж <span className="font-bold text-slate-700">Ч.Анхцэцэг</span>
               </p>
             </div>
