@@ -1,23 +1,24 @@
 @import "tailwindcss";
-
-/* Фонт оруулж ирэх */
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Plus+Jakarta+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Plus+Jakarta+Sans:wght@400;700;800&display=swap');
 
 @theme {
-  /* Фонт тохируулах */
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui;
   --font-handwriting: "Caveat", cursive;
 
-  /* Анимэйшнүүд нэмэх */
-  --keyframes-float: {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-  };
-  --animation-float: float 6s ease-in-out infinite;
+  /* Baby Blue болон Space өнгөнүүд */
+  --color-space-dark: #0f172a;
+  --color-baby-blue: #bae6fd;
+  --color-rocket-orange: #fb923c;
 
-  --keyframes-shimmer: {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
+  --keyframes-float: {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(2deg); }
   };
-  --animation-shimmer: shimmer 1.5s infinite;
+  --animation-float: float 5s ease-in-out infinite;
+
+  --keyframes-twinkle: {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+  };
+  --animation-twinkle: twinkle 3s ease-in-out infinite;
 }
