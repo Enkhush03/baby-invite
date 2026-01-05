@@ -6,6 +6,25 @@ import p3 from "../assets/p3.jpeg";
 
 export default function BabyBirthdayInvite() {
   const [isOpened, setIsOpened] = useState(false);
+    // 🌌 Envelope-д зориулсан жижиг сансрын фон
+  const MiniSpaceBackground = () => (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
+      {[...Array(20)].map((_, i) => (
+        <div
+          key={i}
+          className="absolute bg-sky-300/70 rounded-full animate-twinkle"
+          style={{
+            width: `${Math.random() * 3 + 1}px`,
+            height: `${Math.random() * 3 + 1}px`,
+            top: `${Math.random() * 100}%`,
+            left: `${Math.random() * 100}%`,
+            animationDelay: `${Math.random() * 5}s`
+          }}
+        />
+      ))}
+    </div>
+  );
+
 
   // URL-аас зочны нэрийг унших (Жишээ нь: ?to=Баатар)
   const guestName = useMemo(() => {
@@ -89,6 +108,9 @@ export default function BabyBirthdayInvite() {
   if (!isOpened) {
     return (
       <div className="min-h-screen bg-sky-50 flex items-center justify-center p-4 font-sans relative overflow-hidden">
+  <MiniSpaceBackground />
+
+  
         {/* Арын хөвдөг дүрсүүд */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-[10%] left-[10%] w-64 h-64 bg-sky-200/50 rounded-full blur-3xl animate-float" />
@@ -98,7 +120,14 @@ export default function BabyBirthdayInvite() {
         <div className="relative w-full max-w-md z-10">
           <div className="bg-white rounded-[40px] shadow-2xl overflow-hidden border-4 border-white transform transition-all duration-500 hover:scale-[1.02]">
             <div className="relative h-56 bg-sky-100 flex items-center justify-center overflow-hidden">
-              <Cake className="w-20 h-20 text-sky-500 animate-float" />
+              <div className="relative">
+  <Cake className="w-20 h-20 text-sky-500 animate-float z-10" />
+
+  <Star className="absolute -top-4 -right-4 w-6 h-6 text-yellow-400 animate-twinkle" />
+  <Gift className="absolute -bottom-4 -left-4 w-6 h-6 text-purple-400 animate-float-alt" />
+  <Rocket className="absolute -top-6 left-1/2 w-5 h-5 text-orange-400 animate-spin-slow" />
+</div>
+
               <div className="absolute bottom-0 w-full h-1/2 bg-linear-to-t from-white to-transparent" />
             </div>
 
@@ -147,6 +176,13 @@ export default function BabyBirthdayInvite() {
           
           {/* Hero / Photos Section */}
           <div className="relative p-6 sm:p-10 flex flex-col items-center text-center bg-linear-to-b from-sky-500/10 to-transparent">
+          {/* Floating background icons */}
+<Rocket className="absolute top-10 left-10 w-8 h-8 text-orange-400/20 animate-float" />
+<Gift className="absolute top-1/2 right-8 w-10 h-10 text-pink-400/20 animate-float-alt" />
+<Cake className="absolute bottom-12 left-1/4 w-10 h-10 text-sky-400/20 animate-spin-slow" />
+<Moon className="absolute top-20 right-1/3 w-12 h-12 text-purple-400/10 animate-float-alt" />
+<Star className="absolute bottom-10 right-20 w-6 h-6 text-yellow-300/30 animate-twinkle" />
+
             
             {/* 1 Нас Badge */}
             <div className="absolute top-6 right-6 z-20">
@@ -186,7 +222,10 @@ export default function BabyBirthdayInvite() {
 </div>
 
             {/* Countdown */}
-            <div className="flex justify-center gap-3 w-full">
+            <div className="relative flex justify-center gap-3 w-full">
+  <Orbit className="absolute -top-10 left-1/2 -translate-x-1/2 w-32 h-32 text-sky-500/10 animate-spin-slow" />
+  <Star className="absolute top-0 left-10 w-4 h-4 text-yellow-400 animate-twinkle" />
+
               {[
                 { label: 'Өдөр', val: timeLeft.days },
                 { label: 'Цаг', val: timeLeft.hours },
