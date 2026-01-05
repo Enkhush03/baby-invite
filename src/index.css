@@ -1,7 +1,26 @@
 @import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Plus+Jakarta+Sans:wght@400;700;800&display=swap');
 
-/* Анимэйшнүүд */
+@layer utilities {
+  /* Анимэйшн utility классууд */
+  .animate-float {
+    animation: float 5s ease-in-out infinite;
+  }
+  
+  .animate-twinkle {
+    animation: twinkle 3s ease-in-out infinite;
+  }
+  
+  .animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+  }
+  
+  .animate-float-alt {
+    animation: float-alt 8s ease-in-out infinite;
+  }
+}
+
+/* Анимэйшнүүдийн тодорхойлолт */
 @keyframes float {
   0%, 100% { 
     transform: translateY(0px) rotate(0deg); 
