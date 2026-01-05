@@ -34,9 +34,10 @@ export default function BabyBirthdayInvite() {
   }, [eventDate]);
 
   // Сансрын фон (Одод анивчих эффект)
+ // Энэ хэсгийг олоод доорх кодоор бүрэн соль
   const SpaceBackground = () => (
     <div className="absolute inset-0 overflow-hidden pointer-events-none bg-slate-950 -z-10">
-      {[...Array(30)].map((_, i) => (
+      {[...Array(40)].map((_, i) => (
         <div 
           key={i}
           className="absolute bg-white rounded-full animate-twinkle"
@@ -49,18 +50,17 @@ export default function BabyBirthdayInvite() {
           }}
         />
       ))}
-      {/* ЭНД НЭМЖ ӨГНӨ: Хөвдөг гаригууд болон төрсөн өдрийн элементүүд */}
-    <Orbit className="absolute top-10 left-[10%] text-sky-500/20 w-32 h-32 animate-spin-slow" />
-    <Moon className="absolute bottom-40 right-[15%] text-purple-500/20 w-24 h-24 animate-float-alt" />
-    
-    <Cake className="absolute top-40 right-[5%] text-pink-500/20 w-16 h-16 animate-float-alt" />
-    
-    <Gift className="absolute bottom-20 left-[5%] text-sky-400/20 w-20 h-20 animate-float" />
-    
-    
-    <div className="absolute top-[-20%] left-[-10%] w-125 h-125 bg-sky-600/10 rounded-full blur-[120px]" />
-    <div className="absolute bottom-[-10%] right-[-10%] w-100 h-100 bg-purple-600/10 rounded-full blur-[120px]" />
-  </div>
+      {/* Гариг болон бусад элементүүд */}
+      <Orbit className="absolute top-10 left-[10%] text-sky-500/10 w-32 h-32 animate-spin-slow" />
+      <Moon className="absolute bottom-40 right-[15%] text-purple-500/10 w-24 h-24 animate-float-alt" />
+      <Star className="absolute top-1/4 right-1/4 text-yellow-200/20 w-8 h-8 animate-pulse" />
+      <Cake className="absolute top-40 right-[5%] text-pink-500/10 w-16 h-16 animate-float-alt" />
+      <Gift className="absolute bottom-20 left-[5%] text-sky-400/10 w-20 h-20 animate-float" />
+      
+      {/* Гэрлийн эффектүүд */}
+      <div className="absolute top-[-20%] left-[-10%] w-125 h-125 bg-sky-600/10 rounded-full blur-[120px]" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-100 h-100 bg-purple-600/10 rounded-full blur-[120px]" />
+    </div>
   );
 
   // 1. НЭЭХЭЭС ӨМНӨХ ХЭСЭГ (ENVELOPE)
@@ -103,18 +103,12 @@ export default function BabyBirthdayInvite() {
 
 {/* Footer */}
 
-<div className="absolute bottom-8 left-0 right-0 text-center">
-
-<p className="text-slate-400 text-sm font-medium flex items-center justify-center gap-2">
-
-<span className="w-1.5 h-1.5 rounded-full bg-purple-400" />
-
-Болдсүхийн гэр бүлээс
-
-<span className="w-1.5 h-1.5 rounded-full bg-purple-400" />
-
-</p>
-
+<div className="absolute bottom-8 left-0 right-0 text-center z-20">
+  <p className="text-white text-base sm:text-lg font-black flex items-center justify-center gap-3 tracking-wide drop-shadow-[0_0_10px_rgba(186,230,253,0.5)]">
+    <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" />
+    <span className="uppercase italic">Болдсүхийн гэр бүлээс</span>
+    <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" />
+  </p>
 </div>
 
 </div>
@@ -155,17 +149,19 @@ export default function BabyBirthdayInvite() {
 
             {/* Guest Welcome */}
             <div className="mb-8">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-500/20 text-sky-300 text-xs font-bold uppercase tracking-widest mb-4 border border-sky-500/30">
-                <Orbit className="w-4 h-4 animate-spin-slow" />
-                Урилга
-              </div>
-              <h1 className="text-xl sm:text-2xl text-sky-100 font-medium px-4">
-                Эрхэм <span className="text-white font-black border-b-2 border-sky-500 uppercase px-1">{guestName}</span> таныг
-              </h1>
-              <p className="mt-4 text-slate-400 text-sm sm:text-base max-w-md mx-auto">
-                Бидний хайрт хүү Б.Тэнүүнгүний 1 насны төрсөн өдрийн баярт хүрэлцэн ирэхийг урьж байна.
-              </p>
-            </div>
+  <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-500/20 text-sky-300 text-xs font-bold uppercase tracking-widest mb-6 border border-sky-500/30">
+    <Cake className="w-4 h-4 animate-spin-slow" />
+    Урилга
+  </div>
+  
+  <h1 className="text-2xl sm:text-4xl text-sky-100 font-medium px-4 leading-tight">
+    Эрхэм <span className="text-white font-black border-b-4 border-sky-500 uppercase px-2">{guestName}</span> таныг
+  </h1>
+
+  <p className="mt-6 text-slate-300 text-lg sm:text-2xl max-w-xl mx-auto leading-relaxed font-medium">
+    Бидний хайрт хүү <span className="text-sky-400 font-bold">Б.Тэнүүнгүний</span> 1 насны төрсөн өдрийн баярт гэр бүлийн хамтаар хүрэлцэн ирэхийг урьж байна.
+  </p>
+</div>
 
             {/* Countdown */}
             <div className="flex justify-center gap-3 w-full">
@@ -183,27 +179,34 @@ export default function BabyBirthdayInvite() {
             </div>
           </div>
 
-          {/* Details Section */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 p-6 sm:p-10 border-y border-white/5 bg-black/20">
-            <div className="flex flex-col items-center text-center gap-2">
-              <Calendar className="text-sky-400 w-6 h-6" />
-              <span className="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Хэзээ</span>
-              <span className="font-bold text-white">1 сарын 18</span>
-              <span className="text-xs text-sky-300/60">Ням гараг</span>
-            </div>
-            <div className="flex flex-col items-center text-center gap-2 sm:border-x border-white/5">
-              <Clock className="text-sky-400 w-6 h-6" />
-              <span className="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Цаг</span>
-              <span className="font-bold text-white">13:30 цаг</span>
-              <span className="text-xs text-sky-300/60">17:00 хүртэл</span>
-            </div>
-            <div className="flex flex-col items-center text-center gap-2">
-              <MapPin className="text-sky-400 w-6 h-6" />
-              <span className="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Хаана</span>
-              <span className="font-bold text-white uppercase text-sm">Sunny Kids Cafe</span>
-              <span className="text-[10px] text-sky-300/60">ХУД-19 хороо</span>
-            </div>
-          </div>
+          {/* Details Section - Гар утас болон Desktop дээр нэг мөрөнд */}
+<div className="flex justify-between items-start p-4 sm:p-10 border-y border-white/5 bg-black/20 gap-1">
+  
+  {/* Хэзээ */}
+  <div className="flex flex-col items-center text-center flex-1">
+    <Calendar className="text-sky-400 w-4 h-4 sm:w-6 sm:h-6 mb-1" />
+    <span className="text-[8px] sm:text-[10px] text-slate-500 uppercase font-bold tracking-tighter sm:tracking-widest">Хэзээ</span>
+    <span className="font-bold text-[10px] sm:text-base text-white whitespace-nowrap">1 сарын 18</span>
+    <span className="text-[9px] sm:text-xs text-sky-300/60">Ням гараг</span>
+  </div>
+
+  {/* Цаг */}
+  <div className="flex flex-col items-center text-center flex-1 border-x border-white/5 px-1">
+    <Clock className="text-sky-400 w-4 h-4 sm:w-6 sm:h-6 mb-1" />
+    <span className="text-[8px] sm:text-[10px] text-slate-500 uppercase font-bold tracking-tighter sm:tracking-widest">Цаг</span>
+    <span className="font-bold text-[10px] sm:text-base text-white">13:30</span>
+    <span className="text-[9px] sm:text-xs text-sky-300/60">17:00 хүртэл</span>
+  </div>
+
+  {/* Хаана */}
+  <div className="flex flex-col items-center text-center flex-1">
+    <MapPin className="text-sky-400 w-4 h-4 sm:w-6 sm:h-6 mb-1" />
+    <span className="text-[8px] sm:text-[10px] text-slate-500 uppercase font-bold tracking-tighter sm:tracking-widest">Хаана</span>
+    <span className="font-bold text-[9px] sm:text-sm text-white leading-tight">SUNNY KIDS</span>
+    <span className="text-[8px] sm:text-[10px] text-sky-300/60 leading-tight">ХУД-19</span>
+  </div>
+
+</div>
 
           {/* Map Link */}
           <div className="p-6">
