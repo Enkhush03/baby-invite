@@ -104,7 +104,7 @@ export default function BabyBirthdayInvite() {
 {/* Footer */}
 
 <div className="absolute bottom-8 left-0 right-0 text-center z-20">
-  <p className="text-white text-base sm:text-lg font-black flex items-center justify-center gap-3 tracking-wide drop-shadow-[0_0_10px_rgba(186,230,253,0.5)]">
+  <p className="text-slate-800 text-base sm:text-lg font-black flex items-center justify-center gap-3 tracking-wide drop-shadow-[0_0_10px_rgba(186,230,253,0.5)]">
     <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" />
     <span className="uppercase italic">Болдсүхийн гэр бүлээс</span>
     <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" />
