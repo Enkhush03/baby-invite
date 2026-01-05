@@ -34,32 +34,54 @@ export default function BabyBirthdayInvite() {
   }, [eventDate]);
 
   // Сансрын фон (Одод анивчих эффект)
- // Энэ хэсгийг олоод доорх кодоор бүрэн соль
+ // Сансрын фон (Одод анивчих эффект)
   const SpaceBackground = () => (
     <div className="absolute inset-0 overflow-hidden pointer-events-none bg-slate-950 -z-10">
-      {[...Array(40)].map((_, i) => (
-        <div 
-          key={i}
-          className="absolute bg-white rounded-full animate-twinkle"
-          style={{
-            width: Math.random() * 3 + 'px',
-            height: Math.random() * 3 + 'px',
-            top: Math.random() * 100 + '%',
-            left: Math.random() * 100 + '%',
-            animationDelay: Math.random() * 5 + 's'
-          }}
-        />
-      ))}
+      {[...Array(40)].map((_, i) => {
+        const size = Math.random() * 3;
+        const top = Math.random() * 100;
+        const left = Math.random() * 100;
+        const delay = Math.random() * 5;
+        
+        return (
+          <div 
+            key={i}
+            className="absolute bg-white rounded-full"
+            style={{
+              width: `${size}px`,
+              height: `${size}px`,
+              top: `${top}%`,
+              left: `${left}%`,
+              animation: `twinkle 3s ease-in-out infinite`,
+              animationDelay: `${delay}s`
+            }}
+          />
+        );
+      })}
       {/* Гариг болон бусад элементүүд */}
-      <Orbit className="absolute top-10 left-[10%] text-sky-500/10 w-32 h-32 animate-spin-slow" />
-      <Moon className="absolute bottom-40 right-[15%] text-purple-500/10 w-24 h-24 animate-float-alt" />
-      <Star className="absolute top-1/4 right-1/4 text-yellow-200/20 w-8 h-8 animate-pulse" />
-      <Cake className="absolute top-40 right-[5%] text-pink-500/10 w-16 h-16 animate-float-alt" />
-      <Gift className="absolute bottom-20 left-[5%] text-sky-400/10 w-20 h-20 animate-float" />
+      <Orbit 
+        className="absolute top-10 left-[10%] text-sky-500/10 w-32 h-32" 
+        style={{ animation: 'spin-slow 20s linear infinite' }}
+      />
+      <Moon 
+        className="absolute bottom-40 right-[15%] text-purple-500/10 w-24 h-24" 
+        style={{ animation: 'float-alt 8s ease-in-out infinite' }}
+      />
+      <Star 
+        className="absolute top-1/4 right-1/4 text-yellow-200/20 w-8 h-8 animate-pulse" 
+      />
+      <Cake 
+        className="absolute top-40 right-[5%] text-pink-500/10 w-16 h-16" 
+        style={{ animation: 'float-alt 8s ease-in-out infinite', animationDelay: '2s' }}
+      />
+      <Gift 
+        className="absolute bottom-20 left-[5%] text-sky-400/10 w-20 h-20" 
+        style={{ animation: 'float 5s ease-in-out infinite' }}
+      />
       
       {/* Гэрлийн эффектүүд */}
-      <div className="absolute top-[-20%] left-[-10%] w-125 h-125 bg-sky-600/10 rounded-full blur-[120px]" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-100 h-100 bg-purple-600/10 rounded-full blur-[120px]" />
+      <div className="absolute top-[-20%] left-[-10%] w-96 h-96 bg-sky-600/10 rounded-full blur-[120px]" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-80 h-80 bg-purple-600/10 rounded-full blur-[120px]" />
     </div>
   );
 
@@ -159,7 +181,7 @@ export default function BabyBirthdayInvite() {
   </h1>
 
   <p className="mt-6 text-slate-300 text-lg sm:text-2xl max-w-xl mx-auto leading-relaxed font-medium">
-    Бидний хайрт хүү <span className="text-sky-400 font-bold">Б.Тэнүүнгүний</span> 1 насны төрсөн өдрийн баярт гэр бүлийн хамтаар хүрэлцэн ирэхийг урьж байна.
+    Бидний хайрт хүү <span className="text-sky-400 font-bold">Б.Тэнүүнгүний</span>  1 насны төрсөн өдрийн баярт гэр бүлийн хамтаар хүрэлцэн ирэхийг урьж байна.
   </p>
 </div>
 
