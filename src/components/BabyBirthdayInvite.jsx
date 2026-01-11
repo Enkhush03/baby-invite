@@ -130,7 +130,7 @@ export default function BabyBirthdayInvite() {
    <Star className="absolute -bottom-8 -left-16 w-6 h-6 text-red-400 animate-twinkle" />
   <Gift className="absolute -top-2 -right-32 w-6 h-6 text-green-300 animate-float-alt" />
   <Rocket className="absolute -bottom-9 left-20 w-5 h-5 text-blue-500 animate-float-alt" />
-  <Moon className="absolute -top-1/5 -left-20 w-6 h-6 text-orange-300 animate-twinkle" />
+ 
   <Satellite className="absolute -top-8 -left-16 w-6 h-6 text-gray-400 animate-spin-slow" />
 </div>
 
