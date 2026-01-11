@@ -218,9 +218,9 @@ export default function BabyBirthdayInvite() {
     Урилга
   </div>
   
-  <h1 className="text-2xl sm:text-4xl text-sky-100 font-medium px-4 leading-tight">
+  <h2 className="text-2xl sm:text-4xl text-sky-100 font-medium px-4 leading-tight">
     Эрхэм <span className="text-white font-black border-b-4 border-sky-500 uppercase px-2">{guestName}</span> таныг
-  </h1>
+  </h2>
 
   <p className="mt-6 text-slate-300 text-lg sm:text-2xl max-w-xl mx-auto leading-relaxed font-medium">
     Бидний хайрт хүү <span className="text-sky-400 font-bold">Б.Тэнүүнгүн</span>-ийн 1 насны төрсөн өдрийн баярт гэр бүлийн хамтаар хүрэлцэн ирэхийг урьж байна.
