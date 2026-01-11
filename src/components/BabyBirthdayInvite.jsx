@@ -269,7 +269,7 @@ export default function BabyBirthdayInvite() {
   <div className="flex flex-col items-center text-center flex-1">
     <MapPin className="text-sky-400 w-4 h-4 sm:w-6 sm:h-6 mb-1" />
     <span className="text-[8px] sm:text-[10px] text-slate-500 uppercase font-bold tracking-tighter sm:tracking-widest">Хаана</span>
-    <span className="font-bold text-[9px] sm:text-sm text-white leading-tight">SUNNY KIDS</span>
+    <span className="font-bold text-[9px] sm:text-sm text-white leading-tight">SUNNY KIDS CAFE</span>
     <span className="text-[8px] sm:text-[10px] text-sky-300/60 leading-tight">ХУД-19</span>
   </div>
 
