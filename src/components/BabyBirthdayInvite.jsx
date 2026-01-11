@@ -78,7 +78,7 @@ export default function BabyBirthdayInvite() {
         );
       })}
       {/* Гариг болон бусад элементүүд */}
-      <Orbit 
+      <Star
         className="absolute top-10 left-[10%] text-sky-500/10 w-32 h-32" 
         style={{ animation: 'spin-slow 20s linear infinite' }}
       />
@@ -217,7 +217,7 @@ export default function BabyBirthdayInvite() {
   </h1>
 
   <p className="mt-6 text-slate-300 text-lg sm:text-2xl max-w-xl mx-auto leading-relaxed font-medium">
-    Бидний хайрт хүү <span className="text-sky-400 font-bold">Б.Тэнүүнгүний</span>  1 насны төрсөн өдрийн баярт гэр бүлийн хамтаар хүрэлцэн ирэхийг урьж байна.
+    Бидний хайрт хүү <span className="text-sky-400 font-bold">Б.Тэнүүнгүн</span>-ийн 1 насны төрсөн өдрийн баярт гэр бүлийн хамтаар хүрэлцэн ирэхийг урьж байна.
   </p>
 </div>
 
@@ -272,18 +272,19 @@ export default function BabyBirthdayInvite() {
           {/* Map Link */}
           <div className="p-6">
             <a 
-              href="https://share.google/bN6wAtxjWtYwSiLjd" 
+              href="https://www.google.com/maps/search/?api=1&query=47.9184,106.9057" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="group relative block w-full h-32 rounded-3xl overflow-hidden border border-white/10 shadow-2xl"
+              className="group relative block w-full h-32 rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-slate-800"
             >
-              <img 
-                src="https://api.mapbox.com/styles/v1/mapbox/dark-v10/static/pin-s+8B5CF6(106.9057,47.9184)/106.9057,47.9184,14/600x300@2x?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" 
-                className="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700"
-                alt="Location Map"
+              <iframe
+                src="https://www.openstreetmap.org/export/embed.html?bbox=106.8957%2C47.9084%2C106.9157%2C47.9284&layer=mapnik&marker=47.9184%2C106.9057"
+                className="w-full h-full opacity-60 group-hover:opacity-80 transition-opacity duration-700 pointer-events-none"
+                style={{ border: 0, filter: 'grayscale(0.3) brightness(0.7)' }}
+                title="Location Map"
               />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="bg-sky-500 text-white px-6 py-2 rounded-full font-bold text-sm shadow-xl flex items-center gap-2 group-hover:bg-sky-400 transition-colors">
+              <div className="absolute inset-0 flex items-center justify-center bg-linear-to-t from-slate-900/80 via-transparent to-transparent pointer-events-none">
+                <div className="bg-sky-500 text-white px-6 py-2 rounded-full font-bold text-sm shadow-xl flex items-center gap-2 group-hover:bg-sky-400 transition-colors pointer-events-auto">
                   <Navigation className="w-4 h-4" />
                   MAPS-аар харах
                 </div>
