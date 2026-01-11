@@ -229,7 +229,7 @@ export default function BabyBirthdayInvite() {
 
             {/* Countdown */}
             <div className="relative flex justify-center gap-3 w-full">
-  <Orbit className="absolute -top-10 left-1/2 -translate-x-1/2 w-32 h-32 text-sky-500/10 animate-spin-slow" />
+  
   <Star className="absolute top-0 left-10 w-4 h-4 text-yellow-400 animate-twinkle" />
 
               {[
