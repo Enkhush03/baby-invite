@@ -63,7 +63,7 @@
 }
 
 @theme {
-  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui;
+  --font-sans: "Times New Roman", Times, serif, ui-sans-serif, system-ui;
   --font-handwriting: "Caveat", cursive;
 
   /* Өнгөнүүд */
