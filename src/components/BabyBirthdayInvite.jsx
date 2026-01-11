@@ -185,7 +185,7 @@ export default function BabyBirthdayInvite() {
           {/* Floating background icons */}
 <Rocket className="absolute top-10 left-10 w-8 h-8 text-orange-400/20 animate-float" />
 <Gift className="absolute top-1/2 right-8 w-10 h-10 text-pink-400/20 animate-float-alt" />
-<Cake className="absolute bottom-12 left-1/4 w-8 h-8 text-red-300 animate-spin-slow" />
+<Cake className="absolute top-1/2 left-8 w-10 h-10 text-cyan-200 animate-spin-slow" />
 <Moon className="absolute top-20 right-1/3 w-8 h-8 text-purple-400/10 animate-float-alt" />
 <Star className="absolute bottom-10 right-20 w-6 h-6 text-yellow-300/30 animate-twinkle" />
 
