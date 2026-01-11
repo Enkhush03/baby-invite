@@ -278,7 +278,7 @@ export default function BabyBirthdayInvite() {
           {/* Map Link */}
           <div className="p-6">
             <a 
-              href="https://www.google.com/maps/search/?api=1&query=47.9184,106.9057" 
+              href="https://maps.app.goo.gl/mnc193j2idtSxUgA6" 
               target="_blank" 
               rel="noopener noreferrer"
               className="group relative block w-full h-32 rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-slate-800"
