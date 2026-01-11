@@ -123,16 +123,25 @@ export default function BabyBirthdayInvite() {
               <div className="relative">
   <Cake className="w-20 h-20 text-sky-500 animate-float z-10" />
 
-  <Star className="absolute -top-4 -right-16 w-6 h-6 text-yellow-400 animate-twinkle" />
-  <Gift className="absolute -bottom-4 -left-4 w-6 h-6 text-purple-400 animate-spin-slow" />
-  <Rocket className="absolute -top-8 left-1/2 w-5 h-5 text-orange-400 animate-float-alt" />
-  <Moon className="absolute -bottom-1 -right-23 w-6 h-6 text-cyan-300 animate-twinkle" />
-   <Star className="absolute -bottom-8 -left-16 w-6 h-6 text-red-400 animate-twinkle" />
-  <Gift className="absolute -top-2 -right-32 w-6 h-6 text-green-300 animate-float-alt" />
-  <Rocket className="absolute -bottom-9 left-20 w-5 h-5 text-blue-500 animate-float-alt" />
-  <Moon className="absolute -top-1 -left-20 w-6 h-6 text-orange-300 animate-float-alt" />
-  <Satellite className="absolute -top-8 -left-16 w-6 h-6 text-gray-400 animate-spin-slow" />
-</div>
+  {/* Баруун дээд булан */}
+  <Star className="absolute top-4 right-8 w-6 h-6 text-yellow-400 animate-twinkle" />
+  <Gift className="absolute top-8 right-16 w-6 h-6 text-green-300 animate-float-alt" />
+  
+  {/* Зүүн дээд булан */}
+  <Rocket className="absolute top-6 left-8 w-5 h-5 text-orange-400 animate-float-alt" />
+  <Moon className="absolute top-12 left-16 w-6 h-6 text-orange-300 animate-float-alt" style={{ animationDelay: '2s' }} />
+  
+  {/* Баруун доод булан */}
+  <Moon className="absolute bottom-8 right-12 w-6 h-6 text-cyan-300 animate-twinkle" />
+  
+  {/* Зүүн доод булан */}
+  <Gift className="absolute bottom-6 left-8 w-6 h-6 text-purple-400 animate-spin-slow" />
+  <Star className="absolute bottom-12 left-12 w-6 h-6 text-red-400 animate-twinkle" />
+  <Rocket className="absolute bottom-16 left-20 w-5 h-5 text-blue-500 animate-float-alt" style={{ animationDelay: '1s' }} />
+  
+  {/* Дээд төв */}
+  <Rocket className="absolute top-6 left-1/2 -translate-x-1/2 w-5 h-5 text-pink-400 animate-float-alt" />
+  </div>
 
               <div className="absolute bottom-0 w-full h-1/2 bg-linear-to-t from-white to-transparent" />
             </div>
