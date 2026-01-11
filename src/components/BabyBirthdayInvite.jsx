@@ -218,9 +218,9 @@ export default function BabyBirthdayInvite() {
     Урилга
   </div>
   
-  <h2 className="text-2xl sm:text-4xl text-sky-100 font-medium px-4 leading-tight">
+  <h1 className="text-2xl sm:text-4xl text-sky-100 font-medium px-4 leading-tight">
     Эрхэм <span className="text-white font-black border-b-4 border-sky-500 uppercase px-2">{guestName}</span> таныг
-  </h2>
+  </h1>
 
   <p className="mt-6 text-slate-300 text-lg sm:text-2xl max-w-xl mx-auto leading-relaxed font-medium">
     Бидний хайрт хүү <span className="text-sky-400 font-bold">Б.Тэнүүнгүн</span>-ийн 1 насны төрсөн өдрийн баярт гэр бүлийн хамтаар хүрэлцэн ирэхийг урьж байна.
@@ -252,25 +252,25 @@ export default function BabyBirthdayInvite() {
   {/* Хэзээ */}
   <div className="flex flex-col items-center text-center flex-1">
     <Calendar className="text-sky-400 w-4 h-4 sm:w-6 sm:h-6 mb-1" />
-    <span className="text-[8px] sm:text-[10px] text-slate-500 uppercase font-bold tracking-tighter sm:tracking-widest">Хэзээ</span>
-    <span className="font-bold text-[10px] sm:text-base text-white whitespace-nowrap">1 сарын 18</span>
-    <span className="text-[9px] sm:text-xs text-sky-300/60">Ням гараг</span>
+    <span className="text-[10px] sm:text-[10px] text-slate-500 uppercase font-bold tracking-tighter sm:tracking-widest">Хэзээ</span>
+    <span className="font-bold text-[12px] sm:text-base text-white whitespace-nowrap">1 сарын 18</span>
+    <span className="text-[10px] sm:text-xs text-sky-300/60">Ням гараг</span>
   </div>
 
   {/* Цаг */}
   <div className="flex flex-col items-center text-center flex-1 border-x border-white/5 px-1">
     <Clock className="text-sky-400 w-4 h-4 sm:w-6 sm:h-6 mb-1" />
-    <span className="text-[8px] sm:text-[10px] text-slate-500 uppercase font-bold tracking-tighter sm:tracking-widest">Цаг</span>
-    <span className="font-bold text-[10px] sm:text-base text-white">13:30</span>
-    <span className="text-[9px] sm:text-xs text-sky-300/60">17:00 хүртэл</span>
+    <span className="text-[10px] sm:text-[10px] text-slate-500 uppercase font-bold tracking-tighter sm:tracking-widest">Цаг</span>
+    <span className="font-bold text-[12px] sm:text-base text-white">13:30</span>
+    <span className="text-[10px] sm:text-xs text-sky-300/60">17:00 хүртэл</span>
   </div>
 
   {/* Хаана */}
   <div className="flex flex-col items-center text-center flex-1">
     <MapPin className="text-sky-400 w-4 h-4 sm:w-6 sm:h-6 mb-1" />
-    <span className="text-[8px] sm:text-[10px] text-slate-500 uppercase font-bold tracking-tighter sm:tracking-widest">Хаана</span>
-    <span className="font-bold text-[9px] sm:text-sm text-white leading-tight">SUNNY KIDS CAFE</span>
-    <span className="text-[8px] sm:text-[10px] text-sky-300/60 leading-tight">ХУД-19</span>
+    <span className="text-[10px] sm:text-[10px] text-slate-500 uppercase font-bold tracking-tighter sm:tracking-widest">Хаана</span>
+    <span className="font-bold text-[12px] sm:text-sm text-white leading-tight">SUNNY KIDS CAFE</span>
+    <span className="text-[10px] sm:text-[10px] text-sky-300/60 leading-tight">ХУД-19</span>
   </div>
 
 </div>
