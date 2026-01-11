@@ -127,6 +127,10 @@ export default function BabyBirthdayInvite() {
   <Gift className="absolute -bottom-4 -left-4 w-6 h-6 text-purple-400 animate-float-alt" />
   <Rocket className="absolute -top-6 left-1/2 w-5 h-5 text-orange-400 animate-spin-slow" />
   <Moon className="absolute -bottom-4 -right-6 w-6 h-6 text-cyan-300 animate-spin-slow" />
+   <Star className="absolute -bottom-8 -left-16 w-6 h-6 text-red-400 animate-twinkle" />
+  <Gift className="absolute -top-8 -right-16 w-6 h-6 text-green-300 animate-float-alt" />
+  <Rocket className="absolute -bottom-8 left-20 w-5 h-5 text-blue-500 animate-spin-slow" />
+  <Moon className="absolute -bottom-16 -left-20 w-6 h-6 text-orange-300 animate-spin-slow" />
   
 </div>
 
@@ -181,8 +185,8 @@ export default function BabyBirthdayInvite() {
           {/* Floating background icons */}
 <Rocket className="absolute top-10 left-10 w-8 h-8 text-orange-400/20 animate-float" />
 <Gift className="absolute top-1/2 right-8 w-10 h-10 text-pink-400/20 animate-float-alt" />
-<Cake className="absolute bottom-12 left-1/4 w-10 h-10 text-sky-400/20 animate-spin-slow" />
-<Moon className="absolute top-20 right-1/3 w-12 h-12 text-purple-400/10 animate-float-alt" />
+<Cake className="absolute bottom-12 left-1/4 w-8 h-8 text-red-300 animate-spin-slow" />
+<Moon className="absolute top-20 right-1/3 w-8 h-8 text-purple-400/10 animate-float-alt" />
 <Star className="absolute bottom-10 right-20 w-6 h-6 text-yellow-300/30 animate-twinkle" />
 
             
