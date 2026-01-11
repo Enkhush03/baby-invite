@@ -123,14 +123,14 @@ export default function BabyBirthdayInvite() {
               <div className="relative">
   <Cake className="w-20 h-20 text-sky-500 animate-float z-10" />
 
-  <Star className="absolute -top-4 -right-4 w-6 h-6 text-yellow-400 animate-twinkle" />
+  <Star className="absolute -top-4 -right-16 w-6 h-6 text-yellow-400 animate-twinkle" />
   <Gift className="absolute -bottom-4 -left-4 w-6 h-6 text-purple-400 animate-float-alt" />
   <Rocket className="absolute -top-8 left-1/2 w-5 h-5 text-orange-400 animate-spin-slow" />
-  <Moon className="absolute -top-1 -right-16 w-6 h-6 text-cyan-300 animate-twinkle" />
+  <Moon className="absolute -top-1/2 -right-25 w-6 h-6 text-cyan-300 animate-twinkle" />
    <Star className="absolute -bottom-8 -left-16 w-6 h-6 text-red-400 animate-twinkle" />
-  <Gift className="absolute -top-8 -right-16 w-6 h-6 text-green-300 animate-float-alt" />
+  <Gift className="absolute -top-8 -right-32 w-6 h-6 text-green-300 animate-float-alt" />
   <Rocket className="absolute -bottom-9 left-20 w-5 h-5 text-blue-500 animate-float-alt" />
-  <Moon className="absolute -top-1 -left-20 w-6 h-6 text-orange-300 animate-float-alt" />
+  <Moon className="absolute -top-1/2 -left-20 w-6 h-6 text-orange-300 animate-float-alt" />
   <Satellite className="absolute -top-8 -left-16 w-6 h-6 text-gray-400 animate-spin-slow" />
 </div>
 
