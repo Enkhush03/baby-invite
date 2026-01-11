@@ -71,3 +71,6 @@
   --color-baby-blue: #bae6fd;
   --color-rocket-orange: #fb923c;
 }
+body {
+  font-family: "Times New Roman", Times, serif;
+}
