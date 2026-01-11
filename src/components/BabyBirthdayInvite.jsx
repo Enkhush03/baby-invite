@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Heart, Calendar, Clock, MapPin, Star, Navigation, Rocket, Orbit, Cake, Moon, Gift } from 'lucide-react';
+import { Heart, Calendar, Clock, MapPin, Star, Navigation, Rocket, Orbit, Cake, Moon, Gift, Car, Satellite } from 'lucide-react';
 import p1 from "../assets/p1.jpeg";
 import p2 from "../assets/p2.jpeg";
 import p3 from "../assets/p3.jpeg";
@@ -129,9 +129,9 @@ export default function BabyBirthdayInvite() {
   <Moon className="absolute -bottom-4 -right-6 w-6 h-6 text-cyan-300 animate-spin-slow" />
    <Star className="absolute -bottom-8 -left-16 w-6 h-6 text-red-400 animate-twinkle" />
   <Gift className="absolute -top-8 -right-16 w-6 h-6 text-green-300 animate-float-alt" />
-  <Rocket className="absolute -bottom-8 left-20 w-5 h-5 text-blue-500 animate-spin-slow" />
-  <Moon className="absolute -bottom-16 -left-20 w-6 h-6 text-orange-300 animate-spin-slow" />
-  
+  <Rocket className="absolute -bottom-9 left-20 w-5 h-5 text-blue-500 animate-spin-slow" />
+  <Moon className="absolute -bottom-2 -left-20 w-6 h-6 text-orange-300 animate-spin-slow" />
+  <Satellite className="absolute -top-8 -left-16 w-6 h-6 text-gray-400 animate-float-alt" />
 </div>
 
               <div className="absolute bottom-0 w-full h-1/2 bg-linear-to-t from-white to-transparent" />
@@ -185,7 +185,7 @@ export default function BabyBirthdayInvite() {
           {/* Floating background icons */}
 <Rocket className="absolute top-10 left-10 w-8 h-8 text-orange-400/20 animate-float" />
 <Gift className="absolute top-1/2 right-8 w-10 h-10 text-pink-400/20 animate-float-alt" />
-<Cake className="absolute top-1/2 left-8 w-10 h-10 text-cyan-200 animate-spin-slow" />
+<Satellite className="absolute top-1/2 left-8 w-10 h-10 text-cyan-200/20 animate-spin-slow" />
 <Moon className="absolute top-20 right-1/3 w-8 h-8 text-purple-400/10 animate-float-alt" />
 <Star className="absolute bottom-10 right-20 w-6 h-6 text-yellow-300/30 animate-twinkle" />
 
