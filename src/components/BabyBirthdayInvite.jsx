@@ -305,7 +305,7 @@ export default function BabyBirthdayInvite() {
               <Cake className="text-sky-500/40 w-5 h-5" />
               <Star className="text-sky-500/40 w-5 h-5" />
             </div>
-            <p className="text-slate-400 text-sm">Хүндэтгэсэн аав <span className="text-white font-bold">Л.Болдсүх</span>, ээж <span className="text-white font-bold">Ч.Анхцэцэг</span></p>
+            <p className="text-slate-400 text-sm">Хүндэтгэсэн аав <span className="text-white font-bold">Л.Б</span>, ээж <span className="text-white font-bold">Ч.А</span></p>
           </div>
         </div>
       </main>
