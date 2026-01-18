@@ -138,7 +138,7 @@ export default function BabyBirthdayInvite() {
             </div>
 
             <div className="p-8 text-center">
-              <h2 className="text-4xl font-handwriting text-slate-800 mb-2">Б.Тэнүүнгүн</h2>
+              <h2 className="text-4xl font-handwriting text-slate-800 mb-2">Б.Тэ</h2>
               <p className="text-sky-500 font-bold tracking-widest text-xs uppercase mb-8">Би 1 нас хүрлээ</p>
               
               <button 
@@ -163,7 +163,7 @@ export default function BabyBirthdayInvite() {
 <div className="absolute bottom-8 left-0 right-0 text-center z-20">
   <p className="text-slate-800 text-base sm:text-lg font-black flex items-center justify-center gap-3 tracking-wide drop-shadow-[0_0_10px_rgba(186,230,253,0.5)]">
     <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" />
-    <span className="uppercase italic">Болдсүхийн гэр бүлээс</span>
+    <span className="uppercase italic">Б-ийн гэр бүлээс</span>
     <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" />
   </p>
 </div>
@@ -201,13 +201,13 @@ export default function BabyBirthdayInvite() {
             {/* Photos Layout */}
             <div className="relative flex items-center justify-center gap-2 sm:gap-4 mb-10 mt-4 w-full">
               <div className="w-24 h-32 sm:w-32 sm:h-44 bg-white/10 p-1 rounded-2xl -rotate-6 overflow-hidden border border-white/20 hover:rotate-0 transition-transform">
-                <img src={p2} className="w-full h-full object-cover rounded-xl" alt="Baby 2" />
+                {/*<img src={p2} className="w-full h-full object-cover rounded-xl" alt="Baby 2" />*/}
               </div>
               <div className="w-32 h-44 sm:w-44 sm:h-60 bg-white p-1.5 rounded-2xl z-10 shadow-2xl scale-110 border-4 border-sky-400">
-                <img src={p1} className="w-full h-full object-cover rounded-xl" alt="Main Baby" />
+                {/*<img src={p1} className="w-full h-full object-cover rounded-xl" alt="Main Baby" />*/}
               </div>
               <div className="w-24 h-32 sm:w-32 sm:h-44 bg-white/10 p-1 rounded-2xl rotate-6 overflow-hidden border border-white/20 hover:rotate-0 transition-transform">
-                <img src={p3} className="w-full h-full object-cover rounded-xl" alt="Baby 3" />
+                {/*<img src={p3} className="w-full h-full object-cover rounded-xl" alt="Baby 3" />*/}
               </div>
             </div>
 
@@ -223,7 +223,7 @@ export default function BabyBirthdayInvite() {
   </h1>
 
   <p className="mt-6 text-slate-300 text-lg sm:text-2xl max-w-xl mx-auto leading-relaxed font-medium">
-    Бидний хайрт хүү <span className="text-sky-400 font-bold">Б.Тэнүүнгүн</span>-ийн 1 насны төрсөн өдрийн баярт гэр бүлийн хамтаар хүрэлцэн ирэхийг урьж байна.
+    Бидний хайрт хүү <span className="text-sky-400 font-bold">Б.Т</span>-ийн 1 насны төрсөн өдрийн баярт гэр бүлийн хамтаар хүрэлцэн ирэхийг урьж байна.
   </p>
 </div>
 
