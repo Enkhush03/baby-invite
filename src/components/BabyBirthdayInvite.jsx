@@ -205,6 +205,7 @@ export default function BabyBirthdayInvite() {
               </div>
               <div className="w-32 h-44 sm:w-44 sm:h-60 bg-white p-1.5 rounded-2xl z-10 shadow-2xl scale-110 border-4 border-sky-400">
                 {/*<img src={p1} className="w-full h-full object-cover rounded-xl" alt="Main Baby" />*/}
+                <img src={a1} className="w-full h-full object-cover rounded-xl" alt="Main Baby" />
               </div>
               <div className="w-24 h-32 sm:w-32 sm:h-44 bg-white/10 p-1 rounded-2xl rotate-6 overflow-hidden border border-white/20 hover:rotate-0 transition-transform">
                 {/*<img src={p3} className="w-full h-full object-cover rounded-xl" alt="Baby 3" />*/}
